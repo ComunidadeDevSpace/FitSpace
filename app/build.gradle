@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.app.fitspaceteste'
+    namespace 'com.app.fitspace'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.app.fitspaceteste"
+        applicationId "com.app.fitspace"
         minSdk 24
         targetSdk 33
         versionCode 1

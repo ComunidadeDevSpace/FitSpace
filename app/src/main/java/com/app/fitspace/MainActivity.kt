@@ -1,4 +1,4 @@
-package com.app.fitspaceteste
+package com.app.fitspace
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
