@@ -1,4 +1,4 @@
-package com.app.fitspace.presenter.ui
+package com.app.fitspace.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
