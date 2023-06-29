@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.app.fitspace"
-        minSdk 24
+        minSdk 31
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -86,5 +86,8 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     // LiveData
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+
+    //Splash Screen
+   implementation "androidx.core:core-splashscreen:1.0.0"
 }
 
