@@ -88,6 +88,6 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
 
     //Splash Screen
-   implementation "androidx.core:core-splashscreen:1.0.0"
+   //implementation "androidx.core:core-splashscreen:1.0.0"
 }
 

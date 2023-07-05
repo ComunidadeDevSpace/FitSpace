@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.FitSpace" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.FitSpace" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="colorPrimary">@color/blue_background</item>
@@ -8,14 +8,5 @@
         <item name="colorTertiary">@color/orange</item>
     </style>
 
-    <style name="SplashScreen" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="android:windowSplashScreenBackground">@color/blue_background</item>
-        <item name="android:windowSplashScreenAnimatedIcon">@drawable/...</item>
-        <item name="android:windowSplashScreenAnimationDuration">1000</item>
-        <item name="android:windowSplashScreenIconBackgroundColor">@color/...</item>
-        <item name="android:windowSplashScreenBrandingImage">@drawable/...</item>
-     </style>
 
-    <style name="Theme.FitSpace" parent="Base.Theme.FitSpace" />
-
-</resources>
+    </resources>
