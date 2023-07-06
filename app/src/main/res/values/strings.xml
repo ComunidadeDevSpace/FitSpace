@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">FitSpace</string>
+    <string name="toolbarName">FitSpace</string>
+    <string name="textName">Nome</string>
+    <string name="hintName">Ex: João Silva</string>
+    <string name="textEmail">Email</string>
+    <string name="hintEmail">Ex: joao@gmail.com</string>
+    <string name="textNick">Como gostaria de ser chamado?</string>
+    <string name="hintNick">Joãozinho</string>
+    <string name="textPassword">Senha</string>
+    <string name="hintPassword">********</string>
+    <string name="textWarning">A senha precisa conter no mínimo 8 digitos, letras maiúsculas e números</string>
+    <string name="textPhone">Número de telefone</string>
+    <string name="hintPhone">Ex: +55 11 40028922</string>
+    <string name="textDate">Data de nascimento</string>
+    <string name="hintDate">03/10/1990</string>
+    <string name="textGender">Sexo</string>
+    <string name="rbFemale">Mulher</string>
+    <string name="rbMale">Homem</string>
+    <string name="textButton">Salvar</string>
 </resources>

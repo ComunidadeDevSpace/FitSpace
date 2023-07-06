@@ -1,5 +1,6 @@
 package com.app.fitspace.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -24,12 +25,17 @@ class MainActivity : AppCompatActivity() {
         viewModel = UserViewModel(repository)
 
         binding.saveBtn.setOnClickListener {
-            val name = binding.nameEdt.text.toString()
-            val email = binding.emailEdt.text.toString()
 
-            val user = UserEntity(name, email)
+            val intent = Intent(this, SignUp::class.java)
+            startActivity(intent)
 
-            viewModel.insertUser(user)
+//            val name = binding.nameEdt.text.toString()
+//            val email = binding.emailEdt.text.toString()
+//
+//            val user = UserEntity(name, email)
+//
+//            viewModel.insertUser(user)
+
         }
     }
 }
