@@ -328,6 +328,7 @@
                         android:button="@android:color/transparent"
                         android:layout_weight="1"
                         android:gravity="center"
+                        android:onClick="onRadioButtonClicked"
                         android:text="@string/rbMale"
                         android:layout_marginStart="30dp"
                         app:layout_constraintStart_toEndOf="@+id/rb_female"
