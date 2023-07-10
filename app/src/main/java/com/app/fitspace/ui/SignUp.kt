@@ -95,12 +95,14 @@ class SignUp : AppCompatActivity() {
             R.id.rb_female -> {
                 if (isSelected) {
                     rbMale.setTextColor(Color.GRAY)
+                    rbMale.isChecked = false
                 }
             }
 
             R.id.rb_male -> {
                 if (isSelected) {
                     rbFemale.setTextColor(Color.GRAY)
+                    rbFemale.isChecked = false
                 }
             }
         }
