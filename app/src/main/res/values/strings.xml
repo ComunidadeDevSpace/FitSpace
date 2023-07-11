@@ -9,7 +9,7 @@
     <string name="hintNick">Joãozinho</string>
     <string name="textPassword">Senha</string>
     <string name="hintPassword">********</string>
-    <string name="textWarning">A senha precisa conter no mínimo 8 digitos, letras maiúsculas e números</string>
+    <string name="textWarning">A senha precisa conter no mínimo 8 digitos, letras maiúsculas, letras minúsculas e números</string>
     <string name="textPhone">Número de telefone</string>
     <string name="hintPhone">Ex: +55 11 40028922</string>
     <string name="textDate">Data de nascimento</string>

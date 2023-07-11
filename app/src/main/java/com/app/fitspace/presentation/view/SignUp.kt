@@ -5,6 +5,8 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.RadioGroup
@@ -13,6 +15,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatRadioButton
 import androidx.cardview.widget.CardView
 import com.app.fitspace.R
+import com.google.android.material.snackbar.Snackbar
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -28,6 +31,20 @@ class SignUp : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sing_up)
+
+        val edtPassword = findViewById<EditText>(R.id.password_edt_text)
+        val passwordWarming = findViewById<TextView>(R.id.textView_warning)
+        val btnSave = findViewById<Button>(R.id.btn_save)
+
+        btnSave.setOnClickListener {
+            if(isPasswordValid(edtPassword.text.toString())){
+                finish()
+
+            } else if (!isPasswordValid(edtPassword.text.toString())){
+                passwordWarming.visibility = View.VISIBLE
+                Snackbar.make(btnSave, "Senha inválida", Snackbar.LENGTH_LONG).show()
+            }
+        }
 
         val imageView = findViewById<ImageView>(R.id.back_toolbar)
         imageView.setOnClickListener {
@@ -78,12 +95,14 @@ class SignUp : AppCompatActivity() {
             R.id.rb_female -> {
                 if (isSelected) {
                     rbMale.setTextColor(Color.GRAY)
+                    rbMale.isChecked = false
                 }
             }
 
             R.id.rb_male -> {
                 if (isSelected) {
                     rbFemale.setTextColor(Color.GRAY)
+                    rbFemale.isChecked = false
                 }
             }
         }
@@ -100,5 +119,23 @@ class SignUp : AppCompatActivity() {
             .setNegativeButton("Não") { dialog, which -> }
             .create()
         alertDialog.show()
+    }
+
+    private fun isPasswordValid(password: String): Boolean{
+        val hasUpperCase = password.any{
+            it.isUpperCase()
+        }
+
+        val hasLowerCase = password.any(){
+            it.isLowerCase()
+        }
+
+        val hasDigit = password.any{
+            it.isDigit()
+        }
+
+        val isLenghtValid = password.length >= 8
+
+        return hasUpperCase && hasLowerCase && hasDigit && isLenghtValid
     }
 }
