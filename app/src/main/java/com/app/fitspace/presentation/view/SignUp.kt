@@ -1,4 +1,4 @@
-package com.app.fitspace.ui
+package com.app.fitspace.presentation.view
 
 import android.app.DatePickerDialog
 import android.graphics.Color
