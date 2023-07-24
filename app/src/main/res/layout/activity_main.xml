@@ -25,7 +25,6 @@
             android:background="@color/blue_02"
             app:itemIconTint="@color/white"
             app:itemIconSize="38dp"
-            app:itemActiveIndicatorStyle="@menu/menu_main"
             app:menu="@menu/menu_main" />
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
