@@ -1,35 +1,56 @@
 package com.app.fitspace.presentation.view
 
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffColorFilter
 import android.os.Bundle
-import android.view.View
-import com.app.fitspace.databinding.ActivityMainBinding
-import com.google.android.material.snackbar.Snackbar
+import android.view.Menu
+import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
+import com.app.fitspace.R
+import com.app.fitspace.databinding.FragmentHomeBinding
+import com.app.fitspace.presentation.fragment.HomeFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var bottomNavigationView: BottomNavigationView
+    private lateinit var fragmentManager: FragmentManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_main)
 
-        setUpClickListeners()
+        bottomNavigationView = findViewById(R.id.bottom_nav_view)
+        fragmentManager = supportFragmentManager
+
+        // Define o ouvinte para o evento de seleção de item do BottomNavigationView
+        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+            // Chama o método para trocar o fragmento
+            switchFragment(item.itemId)
+            true
+        }
+
+        // Exibe o fragmento inicial
+        switchFragment(R.layout.fragment_home)
+
     }
 
-    private fun setUpClickListeners() {
-        binding.cardViewItemBmi.setOnClickListener { testMessage(it, "Abrir tela IMC") }
-        binding.cardViewItemCalories.setOnClickListener { testMessage(it, "Abrir tela Calorias") }
-        binding.cardViewItemGoal.setOnClickListener { testMessage(it, "Abrir tela Objetivos") }
-        binding.cardViewItemStretch.setOnClickListener { testMessage(it, "Abrir tela Alongamentos") }
-        binding.cardViewItemRoutine.setOnClickListener { testMessage(it, "Abrir tela Rotinas Diárias") }
-        binding.cardViewItemDica.setOnClickListener { testMessage(it, "Abrir tela Dicas de Saúde") }
+    private fun switchFragment(itemId: Int) {
+        val fragment: Fragment = when (itemId) {
+            R.layout.fragment_home -> Fragment()
+            R.layout.fragment_stats -> Fragment()
+            else -> Fragment()
+        }
+
+        // Realiza a transação do fragmento para exibir o selecionado
+        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.bottom_app_bar, fragment)
+        fragmentTransaction.commit()
     }
 
-    private fun testMessage(view: View, message: String) {
-        Snackbar.make(view, message, Snackbar.LENGTH_LONG)
-            .setAction("Action", null)
-            .show()
-    }
+
+
 }
