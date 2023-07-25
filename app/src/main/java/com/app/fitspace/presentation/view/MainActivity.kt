@@ -1,45 +1,35 @@
 package com.app.fitspace.presentation.view
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.ViewModelProvider
-import com.app.fitspace.data.model.User
+import android.view.View
 import com.app.fitspace.databinding.ActivityMainBinding
-import com.app.fitspace.presentation.viewmodel.UserViewModel
+import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var userViewModel: UserViewModel
-    //private val userViewModel: UserViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val factory = ViewModelProvider.AndroidViewModelFactory.getInstance(application)
-        userViewModel = ViewModelProvider(this,factory).get(UserViewModel::class.java)
+        setUpClickListeners()
+    }
 
-        /**
-         * Example how-to use userViewModel to input data
-         * 1 - created a user instance with your data
-         * 2 - called ViewModel with the respective method and put the user object
-         */
-        val user = User(
-            "Jeferson Barros",
-            "im.jbalves@gmail.com",
-            "jeff",
-            "123456",
-            "+554199999-9999",
-            "16/09/1985",
-            "male"
-            )
-        userViewModel.insertUser(user)
+    private fun setUpClickListeners() {
+        binding.cardViewItemBmi.setOnClickListener { testMessage(it, "Abrir tela IMC") }
+        binding.cardViewItemCalories.setOnClickListener { testMessage(it, "Abrir tela Calorias") }
+        binding.cardViewItemGoal.setOnClickListener { testMessage(it, "Abrir tela Objetivos") }
+        binding.cardViewItemStretch.setOnClickListener { testMessage(it, "Abrir tela Alongamentos") }
+        binding.cardViewItemRoutine.setOnClickListener { testMessage(it, "Abrir tela Rotinas Diárias") }
+        binding.cardViewItemDica.setOnClickListener { testMessage(it, "Abrir tela Dicas de Saúde") }
+    }
 
-        binding.saveBtn.setOnClickListener {
-            val intent = Intent(this, SignUp::class.java)
-            startActivity(intent)
-        }
+    private fun testMessage(view: View, message: String) {
+        Snackbar.make(view, message, Snackbar.LENGTH_LONG)
+            .setAction("Action", null)
+            .show()
     }
 }

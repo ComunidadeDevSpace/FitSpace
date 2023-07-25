@@ -18,4 +18,15 @@
     <string name="rbFemale">Mulher</string>
     <string name="rbMale">Homem</string>
     <string name="textButton">Salvar</string>
+    <string name="body_mass_index">Índice de Massa Corporal</string>
+    <string name="calories">Calorias</string>
+    <string name="imc_icon">Ícone IMC</string>
+    <string name="calories_icon">Ícone Calorias</string>
+    <string name="goal">Objetivos</string>
+    <string name="stretch">Alogamentos</string>
+    <string name="goal_icon">Ícone Objetivos</string>
+    <string name="stretch_icon">Ícone Alongamentos</string>
+    <string name="icon_routine">Ícone Rotinas Diárias</string>
+    <string name="routines">Rotinas diárias</string>
+    <string name="dica">Dicas de saúde</string>
 </resources>
