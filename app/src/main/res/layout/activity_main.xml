@@ -6,25 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".presentation.view.MainActivity">
 
+    <include layout="@layout/toobar_main" />
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout="@layout/fragment_home"/>
+        android:layout_marginTop="?attr/actionBarSize"
+        tools:layout="@layout/fragment_home" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_app_bar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_gravity="bottom" >
+        android:layout_gravity="bottom">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_nav_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/blue_02"
-            app:itemIconTint="@color/white"
             app:itemIconSize="38dp"
+            app:itemIconTint="@color/white"
             app:menu="@menu/menu_main" />
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>

@@ -34,14 +34,14 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Exibe o fragmento inicial
-        switchFragment(R.id.fragment_home)
+        switchFragment(R.layout.fragment_home)
 
     }
 
     private fun switchFragment(itemId: Int) {
         val fragment: Fragment = when (itemId) {
-            R.id.fragment_home -> Fragment()
-            R.id.fragment_stats -> Fragment()
+            R.layout.fragment_home -> Fragment()
+            R.layout.fragment_stats -> Fragment()
             else -> Fragment()
         }
 
