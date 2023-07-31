@@ -38,7 +38,7 @@ class SignIn : AppCompatActivity() {
         )
         userViewModel.insertUser(user)
 
-        binding.saveBtn.setOnClickListener {
+        binding.btnSave.setOnClickListener {
             val intent = Intent(this, SignUp::class.java)
             startActivity(intent)
         }

@@ -8,174 +8,177 @@
     tools:context=".presentation.view.SignIn">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout3"
-        android:layout_width="match_parent"
+    android:id="@+id/constraintLayout3"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_sign_up"
+        style="@style/ToolbarStyle_sign_up"
+        android:layout_width="0dp"
         android:layout_height="?attr/actionBarSize"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_sign_up"
-            style="@style/ToolbarStyle_sign_up"
-            android:layout_width="0dp"
-            android:layout_height="?attr/actionBarSize"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/toolbarName"
-            android:textColor="@color/white"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="24dp"
-            tools:layout_editor_absoluteY="11dp"
-            tools:ignore="MissingConstraints" />
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/toolbarName"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="11dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="24dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    tools:layout_editor_absoluteY="2dp"
+    tools:ignore="MissingConstraints">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="24dp"
+    tools:ignore="MissingConstraints">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textview_email"
+        style="@style/signup_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="@string/textEmail"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="175dp" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/email_cardview"
+        style="@style/Widget.Material3.CardView.Outlined"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="24dp"
+        android:layout_marginTop="6dp"
+        app:cardCornerRadius="3dp"
+        app:layout_constraintBottom_toTopOf="@+id/textview_password"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textview_email">
+
+        <EditText
+            android:id="@+id/email_edt_text"
+            style="@style/signup_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:hint="@string/hintEmail"
+            android:padding="10dp" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/textview_password"
+        style="@style/signup_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/textPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="266dp" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/password_cardview"
+        style="@style/Widget.Material3.CardView.Outlined"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        app:cardCornerRadius="3dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textview_password">
+
+        <EditText
+            android:id="@+id/password_edt_text"
+            style="@style/signup_desc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:hint="@string/hintPassword"
+            android:maxLength="16"
+            android:padding="10dp"
+            android:password="true" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/textView_warning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/textWarning2"
+        android:textColor="#810404"
+        android:textSize="11sp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password_cardview" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/date_cardview"
+        style="@style/Widget.Material3.CardView.Outlined"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="3dp"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="496dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_save"
+        style="@style/ButtonPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/textButtonEntrar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="2dp"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintTop_toBottomOf="@+id/password_cardview" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="24dp"
-            tools:ignore="MissingConstraints">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/TextWelcome"
+        android:textColor="@color/blue_01"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="39dp"
+        tools:layout_editor_absoluteY="92dp" />
 
-        <TextView
-            android:id="@+id/textview_email"
-            style="@style/signup_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:text="@string/textEmail"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="175dp"
-            tools:ignore="MissingConstraints" />
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/email_cardview"
-            style="@style/Widget.Material3.CardView.Outlined"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            app:cardCornerRadius="3dp"
-            app:layout_constraintBottom_toTopOf="@+id/textview_password"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textview_email">
-
-            <EditText
-                android:id="@+id/email_edt_text"
-                style="@style/signup_desc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:hint="@string/hintEmail"
-                android:padding="10dp" />
-        </com.google.android.material.card.MaterialCardView>
-
-        <TextView
-            android:id="@+id/textview_password"
-            style="@style/signup_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/textPassword"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="266dp"
-            tools:ignore="MissingConstraints" />
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/password_cardview"
-            style="@style/Widget.Material3.CardView.Outlined"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            app:cardCornerRadius="3dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textview_password">
-
-            <EditText
-                android:id="@+id/password_edt_text"
-                style="@style/signup_desc"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:color/transparent"
-                android:hint="@string/hintPassword"
-                android:maxLength="16"
-                android:padding="10dp"
-                android:password="true" />
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <TextView
-            android:id="@+id/textView_warning"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:fontFamily="@font/poppins_regular"
-            android:text="@string/textWarning2"
-            android:textColor="#810404"
-            android:textSize="11sp"
-            android:visibility="gone"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/password_cardview" />
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/date_cardview"
-            style="@style/Widget.Material3.CardView.Outlined"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="3dp"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="496dp"
-            tools:ignore="MissingConstraints" />
-
-        <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_save"
-                style="@style/ButtonPrimary"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/textButtonEntrar"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/password_cardview" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/TextWelcome"
-                android:textColor="@color/blue_01"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                tools:layout_editor_absoluteX="39dp"
-                tools:layout_editor_absoluteY="92dp"
-                tools:ignore="MissingConstraints" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/textNewUser"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                tools:layout_editor_absoluteX="4dp"
-                tools:layout_editor_absoluteY="453dp"
-                tools:ignore="MissingConstraints" />
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textNewUser"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="4dp"
+        tools:layout_editor_absoluteY="453dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

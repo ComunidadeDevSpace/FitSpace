@@ -17,6 +17,9 @@
             android:exported="false" />
         <activity
             android:name=".presentation.view.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.view.SignIn"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
