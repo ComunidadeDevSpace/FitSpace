@@ -18,4 +18,14 @@
     <string name="rbFemale">Mulher</string>
     <string name="rbMale">Homem</string>
     <string name="textButton">Salvar</string>
+
+    <string-array name="WeeklyExercise">
+        <item>1 vez na semana</item>
+        <item>2 vezes na semana</item>
+        <item>3 vezes na semana</item>
+        <item>4 vezes na semana</item>
+        <item>5 vezes na semana</item>
+        <item>6 vezes na semana</item>
+        <item>7 vezes na semana</item>
+    </string-array>
 </resources>

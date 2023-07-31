@@ -1,9 +1,659 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.GoalsActivity">
+    tools:context=".presentation.view.GoalsActivity"
+    android:background="@color/blue_background">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/include"
+            layout="@layout/toolbar_goals" />
+
+        <TextView
+            android:id="@+id/weight_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Peso"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/weight_cardView"
+            android:layout_width="144.99dp"
+            android:layout_height="43.26dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:cardCornerRadius="3dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/weight_tv">
+
+            <EditText
+                android:id="@+id/edit_weight"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:hint="Ex: 72,5"
+                android:textSize="14sp" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/weight_kg"
+            android:layout_width="wrap_content"
+            android:layout_height="23.91dp"
+            android:layout_marginStart="15dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="kg"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/weight_cardView"
+            app:layout_constraintStart_toEndOf="@+id/weight_cardView"
+            app:layout_constraintTop_toTopOf="@+id/weight_cardView" />
+
+        <TextView
+            android:id="@+id/height_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginStart="178dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Altura"
+            app:layout_constraintStart_toEndOf="@+id/weight_tv"
+            app:layout_constraintTop_toBottomOf="@+id/include" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/height_cardView"
+            android:layout_width="144.99dp"
+            android:layout_height="43.26dp"
+            android:layout_marginStart="67dp"
+            android:layout_marginTop="8dp"
+            app:cardCornerRadius="3dp"
+            app:layout_constraintStart_toEndOf="@+id/weight_cardView"
+            app:layout_constraintTop_toBottomOf="@+id/height_tv">
+
+            <EditText
+                android:id="@+id/edit_height"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:hint="Ex: 72,5"
+                android:textSize="14sp" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/height_cm"
+            android:layout_width="wrap_content"
+            android:layout_height="23.91dp"
+            android:layout_marginStart="15dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="cm"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/height_cardView"
+            app:layout_constraintStart_toEndOf="@+id/height_cardView"
+            app:layout_constraintTop_toTopOf="@+id/height_cardView" />
+
+        <TextView
+            android:id="@+id/upperBody_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Tronco"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/weight_cardView" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/upperBody_cardView"
+            android:layout_width="144.99dp"
+            android:layout_height="43.26dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:cardCornerRadius="3dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upperBody_tv">
+
+            <EditText
+                android:id="@+id/edit_upper_body"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:hint="Ex: 72,5"
+                android:textSize="14sp" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/cm_upperBody"
+            android:layout_width="wrap_content"
+            android:layout_height="23.91dp"
+            android:layout_marginStart="15dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="cm"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/upperBody_cardView"
+            app:layout_constraintStart_toEndOf="@+id/upperBody_cardView"
+            app:layout_constraintTop_toTopOf="@+id/upperBody_cardView" />
+
+        <TextView
+            android:id="@+id/neck_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginStart="163dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Pescoço"
+            app:layout_constraintStart_toEndOf="@+id/upperBody_tv"
+            app:layout_constraintTop_toBottomOf="@+id/height_cardView" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/neck_cardView"
+            android:layout_width="144.99dp"
+            android:layout_height="43.26dp"
+            android:layout_marginStart="67dp"
+            android:layout_marginTop="8dp"
+            app:cardCornerRadius="3dp"
+            app:layout_constraintStart_toEndOf="@+id/upperBody_cardView"
+            app:layout_constraintTop_toBottomOf="@+id/neck_tv">
+
+            <EditText
+                android:id="@+id/edit_neck"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:hint="Ex: 72,5"
+                android:textSize="14sp" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/neck_cm"
+            android:layout_width="wrap_content"
+            android:layout_height="23.91dp"
+            android:layout_marginStart="15dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="cm"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/neck_cardView"
+            app:layout_constraintStart_toEndOf="@+id/neck_cardView"
+            app:layout_constraintTop_toTopOf="@+id/neck_cardView" />
+
+        <TextView
+            android:id="@+id/hips_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Quadril"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upperBody_cardView" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/hips_cardView"
+            android:layout_width="144.99dp"
+            android:layout_height="43.26dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:cardCornerRadius="3dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hips_tv">
+
+            <EditText
+                android:id="@+id/edit_hips"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:hint="Ex: 72,5"
+                android:textSize="14sp" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/cm_hips"
+            android:layout_width="wrap_content"
+            android:layout_height="23.91dp"
+            android:layout_marginStart="15dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="cm"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/hips_cardView"
+            app:layout_constraintStart_toEndOf="@+id/hips_cardView"
+            app:layout_constraintTop_toTopOf="@+id/hips_cardView" />
+
+        <TextView
+            android:id="@+id/waist_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Cintura"
+            app:layout_constraintStart_toEndOf="@+id/hips_tv"
+            app:layout_constraintTop_toBottomOf="@+id/neck_cardView" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/waist_cardView"
+            android:layout_width="144.99dp"
+            android:layout_height="43.26dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="67dp"
+            app:cardCornerRadius="3dp"
+            app:layout_constraintStart_toEndOf="@+id/hips_cardView"
+            app:layout_constraintTop_toBottomOf="@+id/waist_tv">
+
+            <EditText
+                android:id="@+id/edit_waist"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:hint="Ex: 72,5"
+                android:textSize="14sp" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/cm_waist"
+            android:layout_width="wrap_content"
+            android:layout_height="23.91dp"
+            android:layout_marginStart="15dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="cm"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/waist_cardView"
+            app:layout_constraintStart_toEndOf="@+id/waist_cardView"
+            app:layout_constraintTop_toTopOf="@+id/waist_cardView" />
+
+        <TextView
+            android:id="@+id/rightArm_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Braço direito"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hips_cardView" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/rightArm_cardView"
+            android:layout_width="144.99dp"
+            android:layout_height="43.26dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:cardCornerRadius="3dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rightArm_tv">
+
+            <EditText
+                android:id="@+id/edit_right_arm"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:hint="Ex: 72,5"
+                android:textSize="14sp" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="23.91dp"
+            android:layout_marginStart="15dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="cm"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/rightArm_cardView"
+            app:layout_constraintStart_toEndOf="@+id/rightArm_cardView"
+            app:layout_constraintTop_toTopOf="@+id/rightArm_cardView" />
+
+        <TextView
+            android:id="@+id/leftArm_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginStart="121dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Braço esquerdo"
+            app:layout_constraintStart_toEndOf="@+id/rightArm_tv"
+            app:layout_constraintTop_toBottomOf="@+id/waist_cardView" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/leftArm_cardView"
+            android:layout_width="144.99dp"
+            android:layout_height="43.26dp"
+            android:layout_marginStart="67dp"
+            android:layout_marginTop="8dp"
+            app:cardCornerRadius="3dp"
+            app:layout_constraintStart_toEndOf="@+id/rightArm_cardView"
+            app:layout_constraintTop_toBottomOf="@+id/leftArm_tv">
+
+            <EditText
+                android:id="@+id/edit_left_arm"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:hint="Ex: 72,5"
+                android:textSize="14sp"/>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="23.91dp"
+            android:layout_marginStart="15dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="cm"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/leftArm_cardView"
+            app:layout_constraintStart_toEndOf="@+id/leftArm_cardView"
+            app:layout_constraintTop_toTopOf="@+id/leftArm_cardView" />
+
+        <TextView
+            android:id="@+id/rightThigh_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Coxa direita"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rightArm_cardView" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/rightThigh_cardView"
+            android:layout_width="144.99dp"
+            android:layout_height="43.26dp"
+            app:cardCornerRadius="3dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rightThigh_tv">
+
+            <EditText
+                android:id="@+id/edit_right_thigh"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:hint="Ex: 72,5"
+                android:textSize="14sp"/>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/rightTigh_cm_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="23.91dp"
+            android:layout_marginStart="15dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="cm"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/rightThigh_cardView"
+            app:layout_constraintStart_toEndOf="@+id/rightThigh_cardView"
+            app:layout_constraintTop_toTopOf="@+id/rightThigh_cardView" />
+
+        <TextView
+            android:id="@+id/leftThigh_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="125.5dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Coxa esquerda"
+            app:layout_constraintStart_toEndOf="@+id/rightThigh_tv"
+            app:layout_constraintTop_toBottomOf="@+id/leftArm_cardView" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/leftThigh_cardView"
+            android:layout_width="144.99dp"
+            android:layout_height="43.26dp"
+            android:layout_marginStart="67dp"
+            android:layout_marginTop="8dp"
+            app:cardCornerRadius="3dp"
+            app:layout_constraintStart_toEndOf="@+id/rightThigh_cardView"
+            app:layout_constraintTop_toBottomOf="@+id/leftThigh_tv">
+
+            <EditText
+                android:id="@+id/edit_left_thigh"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:hint="Ex: 72,5"
+                android:textSize="14sp"/>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/leftTigh_cm_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="23.91dp"
+            android:layout_marginStart="15dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="cm"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/leftThigh_cardView"
+            app:layout_constraintStart_toEndOf="@+id/leftThigh_cardView"
+            app:layout_constraintTop_toTopOf="@+id/leftThigh_cardView" />
+
+        <TextView
+            android:id="@+id/rightCalv_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Panturilha direita"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rightThigh_cardView" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/rightCalv_cardView"
+            android:layout_width="144.99dp"
+            android:layout_height="43.26dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:cardCornerRadius="3dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rightCalv_tv">
+
+            <EditText
+                android:id="@+id/edit_right_calv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:hint="Ex: 72,5"
+                android:textSize="14sp"/>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/rightCalv_cm_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="23.91dp"
+            android:layout_marginStart="15dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="cm"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/rightCalv_cardView"
+            app:layout_constraintStart_toEndOf="@+id/rightCalv_cardView"
+            app:layout_constraintTop_toTopOf="@+id/rightCalv_cardView" />
+
+        <TextView
+            android:id="@+id/leftCalv_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="90dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Panturilha esquerda"
+            app:layout_constraintStart_toEndOf="@+id/rightCalv_tv"
+            app:layout_constraintTop_toBottomOf="@+id/leftThigh_cardView" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/leftCalv_cardView"
+            android:layout_width="144.99dp"
+            android:layout_height="43.26dp"
+            android:layout_marginStart="67.5dp"
+            android:layout_marginTop="8dp"
+            app:cardCornerRadius="3dp"
+            app:layout_constraintStart_toEndOf="@+id/rightCalv_cardView"
+            app:layout_constraintTop_toBottomOf="@+id/leftCalv_tv">
+
+            <EditText
+                android:id="@+id/edit_left_calv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:hint="Ex: 72,5"
+                android:textSize="14sp"/>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/leftCalv_cm_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="23.91dp"
+            android:layout_marginStart="15dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="cm"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/leftCalv_cardView"
+            app:layout_constraintStart_toEndOf="@+id/leftCalv_cardView"
+            app:layout_constraintTop_toTopOf="@+id/leftCalv_cardView" />
+
+        <TextView
+            android:id="@+id/goals_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_margin="8dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Objetivo"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rightCalv_cardView" />
+
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/goals_tv">
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/rb_manter"
+                style="@style/goals_check"
+                android:layout_width="123.53dp"
+                android:layout_height="43.26dp"
+                android:background="@drawable/goals_radio_group_selected"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:text="Manter"
+                android:checked="true"
+                android:onClick="onRadioButtonClicked"/>
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/rb_ganhar"
+                style="@style/goals_check"
+                android:layout_width="123.53dp"
+                android:layout_height="43.26dp"
+                android:layout_marginStart="12dp"
+                android:background="@drawable/goals_radio_group_selected"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:text="Ganhar"
+                android:onClick="onRadioButtonClicked"/>
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/rb_emagrecer"
+                style="@style/goals_check"
+                android:layout_width="123.53dp"
+                android:layout_height="43.26dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/goals_radio_group_selected"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:text="Emagrecer"
+                android:onClick="onRadioButtonClicked"/>
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/weeklyExercise_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Exercício físico semanal"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/spinner_cardView"
+            android:layout_width="211dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:cardCornerRadius="3dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/weeklyExercise_tv">
+
+            <Spinner
+                android:id="@+id/spinner_weekly_exercise"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:entries="@array/WeeklyExercise" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <Button
+            android:id="@+id/save_btn_goals"
+            android:layout_width="348dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="50dp"
+            android:backgroundTint="@color/orange"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Salvar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinner_cardView" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/blue_02"
+        app:menu="@menu/menu_goals"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
+        >
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+
+
+
+
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

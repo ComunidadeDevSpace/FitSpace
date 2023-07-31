@@ -49,4 +49,11 @@
         <item name="colorAccent">#E46A15</item>
     </style>
 
+    <style name="goals_check" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">@color/black_42</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+
 </resources>
