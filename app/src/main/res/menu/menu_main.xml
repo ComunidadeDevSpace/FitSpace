@@ -7,7 +7,7 @@
         android:title=""
         app:showAsAction="always" />
 
-    <item android:id="@+id/stats"
+    <item android:id="@+id/graph"
         android:icon="@drawable/graph_both"
         android:title=""
         app:showAsAction="always" />
