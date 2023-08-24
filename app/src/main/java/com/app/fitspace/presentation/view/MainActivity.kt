@@ -1,17 +1,16 @@
 package com.app.fitspace.presentation.view
 
-import android.graphics.PorterDuff
-import android.graphics.PorterDuffColorFilter
 import android.os.Bundle
-import android.view.Menu
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import androidx.fragment.app.commit
 import com.app.fitspace.R
-import com.app.fitspace.databinding.FragmentHomeBinding
+import com.app.fitspace.presentation.fragment.GraphFragment
 import com.app.fitspace.presentation.fragment.HomeFragment
+import com.app.fitspace.presentation.fragment.NewsFragment
+import com.app.fitspace.presentation.fragment.SettingsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -26,31 +25,30 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView = findViewById(R.id.bottom_nav_view)
         fragmentManager = supportFragmentManager
 
-        // Define o ouvinte para o evento de seleção de item do BottomNavigationView
-        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
-            // Chama o método para trocar o fragmento
-            switchFragment(item.itemId)
+        val homeFragment = HomeFragment.newInstance()
+        val graphFragment = GraphFragment.newInstance()
+        val newsFragment = NewsFragment.newInstance()
+        val settingsFragment = SettingsFragment.newInstance()
+
+        supportFragmentManager.commit {
+            replace(R.id.fragment_container_view, homeFragment)
+            setReorderingAllowed(true)
+        }
+
+        bottomNavigationView.setOnItemSelectedListener { menuItem ->
+            val fragment = when (menuItem.itemId) {
+                R.id.home -> homeFragment
+                R.id.graph -> graphFragment
+                R.id.news -> newsFragment
+                R.id.settings -> settingsFragment
+                else -> homeFragment
+            }
+
+            supportFragmentManager.commit {
+                replace(R.id.fragment_container_view, fragment)
+                setReorderingAllowed(true)
+            }
             true
         }
-
-        // Exibe o fragmento inicial
-        switchFragment(R.layout.fragment_home)
-
     }
-
-    private fun switchFragment(itemId: Int) {
-        val fragment: Fragment = when (itemId) {
-            R.layout.fragment_home -> Fragment()
-            R.layout.fragment_stats -> Fragment()
-            else -> Fragment()
-        }
-
-        // Realiza a transação do fragmento para exibir o selecionado
-        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.bottom_app_bar, fragment)
-        fragmentTransaction.commit()
-    }
-
-
-
 }
