@@ -6,6 +6,9 @@
         <item name="colorPrimary">@color/blue_background</item>
         <item name="colorSecondary">@color/blue_02</item>
         <item name="colorTertiary">@color/orange</item>
+
+        <item name="android:windowIsTranslucent">true</item>
+
     </style>
 
 
