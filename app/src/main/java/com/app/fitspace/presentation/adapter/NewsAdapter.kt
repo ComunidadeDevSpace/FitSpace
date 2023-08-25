@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.app.fitspace.R
-import com.app.fitspace.data.local.HealthNews
+import com.app.fitspace.data.remote.HealthNews
 import com.app.fitspace.databinding.ItemNewsBinding
 import com.bumptech.glide.Glide
 

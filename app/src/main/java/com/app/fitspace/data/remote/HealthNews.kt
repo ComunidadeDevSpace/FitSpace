@@ -1,4 +1,4 @@
-package com.app.fitspace.data.local
+package com.app.fitspace.data.remote
 
 data class HealthNews(
     val title: String,
