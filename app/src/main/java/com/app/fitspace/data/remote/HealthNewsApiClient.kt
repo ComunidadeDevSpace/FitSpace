@@ -13,7 +13,7 @@ class HealthNewsApiClient(private val apiKey: String) {
     private val gson = Gson()
 
     fun getHealthNews(callback: (List<HealthNews>?, Throwable?) -> Unit) {
-        val url = "https://newsapi.org/v2/top-headlines?category=health&apiKey=$apiKey"
+        val url = "https://newsapi.org/v2/everything?q=fitness%20AND%20health&apiKey=$apiKey"
 
         val request = Request.Builder()
             .url(url)

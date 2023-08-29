@@ -4,7 +4,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.app.fitspace.R
 import com.app.fitspace.data.remote.HealthNews
 import com.app.fitspace.databinding.ItemNewsBinding
 import com.bumptech.glide.Glide
@@ -13,15 +12,14 @@ class NewsAdapter(private val newsList: List<HealthNews>) : RecyclerView.Adapter
 
         inner class NewsViewHolder(private val binding: ItemNewsBinding) : RecyclerView.ViewHolder(binding.root) {
             fun bind(healthNews: HealthNews) {
-                Log.d("NewsAdapter", "Image URL: ${healthNews.imageUrl}")
+                Log.d("NewsAdapter", "Image URL: ${healthNews.urlToImage}")
 
                 binding.titleTextView.text = healthNews.title
-                binding.descriptionTextView.text = healthNews.description
+//                binding.descriptionTextView.text = healthNews.description
 
                 // Load image using Glide or Picasso here
                 Glide.with(itemView)
-                    .load(healthNews.imageUrl) // Used imageUrl from HealthNews
-                    .placeholder(R.drawable.placeholder_news_image) // Placeholder image
+                    .load(healthNews.urlToImage) // Used imageUrl from HealthNewsDto
                     .into(binding.newsImageView) // ImageView from your layout
 
                 itemView.setOnClickListener {
