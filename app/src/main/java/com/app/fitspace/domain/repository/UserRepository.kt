@@ -1,7 +1,7 @@
 package com.app.fitspace.domain.repository
 
 import androidx.lifecycle.LiveData
-import com.app.fitspace.data.model.User
+import com.app.fitspace.data.model.user.User
 
 interface UserRepository {
     suspend fun insertUser(user: User)

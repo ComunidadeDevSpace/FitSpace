@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
-import com.app.fitspace.data.model.User
+import com.app.fitspace.data.model.user.User
 import com.app.fitspace.databinding.ActivitySignInBinding
 import com.app.fitspace.presentation.viewmodel.UserViewModel
 

@@ -1,4 +1,4 @@
-package com.app.fitspace.data.model
+package com.app.fitspace.data.model.user
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
