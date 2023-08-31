@@ -15,7 +15,6 @@ class NewsAdapter(private val newsList: List<HealthNews>) : RecyclerView.Adapter
                 Log.d("NewsAdapter", "Image URL: ${healthNews.urlToImage}")
 
                 binding.titleTextView.text = healthNews.title
-//                binding.descriptionTextView.text = healthNews.description
 
                 // Load image using Glide or Picasso here
                 Glide.with(itemView)
