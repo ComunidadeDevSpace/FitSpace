@@ -1,11 +1,10 @@
-package com.app.fitspace.ui
+package com.app.fitspace.presentation.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import com.app.fitspace.R
-import kotlinx.coroutines.delay
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

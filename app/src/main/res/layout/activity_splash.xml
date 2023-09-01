@@ -5,5 +5,5 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/tela_splash_screen"
-    tools:context=".ui.SplashActivity" />
+    tools:context=".presentation.view.SplashActivity" />
 

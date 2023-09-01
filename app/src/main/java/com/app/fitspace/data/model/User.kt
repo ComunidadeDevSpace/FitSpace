@@ -1,10 +1,10 @@
-package com.app.fitspace.database
+package com.app.fitspace.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class UserEntity (
+data class User (
     @PrimaryKey
      val name: String,
      val email: String

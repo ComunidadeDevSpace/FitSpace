@@ -12,10 +12,10 @@
         android:theme="@style/Base.Theme.FitSpace"
         tools:targetApi="31">
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".presentation.view.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.SplashActivity"
+            android:name=".presentation.view.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
