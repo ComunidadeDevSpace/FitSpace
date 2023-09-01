@@ -18,5 +18,12 @@ interface UserDao {
     suspend fun update(user: User)
 
     @Query("SELECT * FROM User WHERE email = :email")
-    fun getUserByEmail(email: String): LiveData<List<User>>
+    fun getUserByEmail(email: String, password: String): LiveData<List<User>>
+
+    @Query("SELECT * FROM user WHERE email = :email AND password = :password")
+    fun getUserByEmailAndPassword(email: String, password: String): User?
+
+    @Insert
+    fun insertUser(user: User)
+
 }
