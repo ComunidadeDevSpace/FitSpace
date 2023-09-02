@@ -6,9 +6,11 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class UserGoals(
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
+    val id:Int = 0,
     val weight: Double,
     val height: Double,
+    /*
     val upperBody: Double,
     val neck: Double,
     val hips: Double,
@@ -19,7 +21,6 @@ data class UserGoals(
     val leftThigh:Double,
     val rightCalv:Double,
     val leftCalv:Double,
-    /*
     val goal:String,
     val weeklyExercise: Spinner
 

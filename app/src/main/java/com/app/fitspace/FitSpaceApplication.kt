@@ -15,4 +15,8 @@ class FitSpaceApplication: Application() {
             AppDatabase::class.java, "user_db"
         ).build()
     }
+
+    fun getAppDataBase():AppDatabase{
+        return dataBase
+    }
 }

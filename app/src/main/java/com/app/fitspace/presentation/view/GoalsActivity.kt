@@ -8,16 +8,20 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.Spinner
-import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.widget.AppCompatRadioButton
-import androidx.lifecycle.ViewModelProvider
 import com.app.fitspace.R
 import com.app.fitspace.data.model.UserGoals
 import com.app.fitspace.presentation.viewmodel.UserGoalsViewModel
+import com.app.fitspace.utils.ActionTypeGoals
+import com.app.fitspace.utils.GoalsAction
 
 class GoalsActivity : AppCompatActivity() {
 
+
+    private val viewModel : UserGoalsViewModel by viewModels {
+        UserGoalsViewModel.getVmFactory(application)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,74 +45,65 @@ class GoalsActivity : AppCompatActivity() {
         val radioButtonGanhar = findViewById<RadioButton>(R.id.rb_ganhar)
         val radioButtonEmagrecer = findViewById<RadioButton>(R.id.rb_emagrecer)
         val spinner = findViewById<Spinner>(R.id.spinner_weekly_exercise)
-        val saveButton = findViewById<Button>(R.id.save_btn)
+        val saveButton = findViewById<Button>(R.id.save_btn_goals)
+
+
 
         saveButton.setOnClickListener {
-            val userGoals = UserGoals(
-                weight = editTextWeight.text.toString().toDouble(),
-                height = editTextHeight.text.toString().toDouble(),
-                upperBody = editTextUpperBody.text.toString().toDouble(),
-                neck = editTextNeck.text.toString().toDouble(),
-                hips = editTextHips.text.toString().toDouble(),
-                waist = editTextWaist.text.toString().toDouble(),
-                rightArm = editTextRightArm.text.toString().toDouble(),
-                leftArm = editTextLeftArm.text.toString().toDouble(),
-                rightThigh = editTextRightThigh.text.toString().toDouble(),
-                leftThigh = editTextLeftThigh.text.toString().toDouble(),
-                rightCalv = editTextRightCalv.text.toString().toDouble(),
-                leftCalv = editTextLeftCalv.text.toString().toDouble()
-            )
+            val weight = editTextWeight.text
+            val height = editTextHeight.text
 
-            val weight = editTextWeight.text.toString().toDouble()
-            val height = editTextHeight.text.toString().toDouble()
-            /*
-            val upperBody = editTextUpperBody.text.toString().toDouble()
-            val neck = editTextNeck.text.toString().toDouble()
-            val hips = editTextHips.text.toString().toDouble()
-            val waist = editTextWaist.text.toString().toDouble()
-            val rightArm = editTextRightArm.text.toString().toDouble()
-            val leftArm = editTextLeftArm.text.toString().toDouble()
-            val rightThigh = editTextRightThigh.text.toString().toDouble()
-            val leftThigh = editTextLeftThigh.text.toString().toDouble()
-            val rightCalv = editTextRightCalv.text.toString().toDouble()
-            val leftCalv = editTextLeftCalv.text.toString().toDouble()
-            */
-
-
+            addOrUpdate(weight.toString().toDouble(),height.toString().toDouble(), ActionTypeGoals.INSERT,0)
         }
 
+
+    }
+
+    fun addOrUpdate(
+        weight:Double,
+        height: Double,
+        actionTypeGoals: ActionTypeGoals,
+        id:Int){
+        val userGoals = UserGoals(id,weight,height)
+        performAction(userGoals,actionTypeGoals)
+    }
+
+    private fun performAction(userGoals: UserGoals, actionType: ActionTypeGoals){
+        val goalsAction = GoalsAction(userGoals, actionType.name)
+        viewModel.execute(goalsAction)
+        finish()
     }
 
 
 
 
     fun onRadioButtonClicked(view: View) {
-        val radioButtonManter = findViewById<RadioButton>(R.id.rb_manter)
-        val radioButtonGanhar = findViewById<RadioButton>(R.id.rb_ganhar)
-        val radioButtonEmagrecer = findViewById<RadioButton>(R.id.rb_emagrecer)
+    val radioButtonManter = findViewById<RadioButton>(R.id.rb_manter)
+    val radioButtonGanhar = findViewById<RadioButton>(R.id.rb_ganhar)
+    val radioButtonEmagrecer = findViewById<RadioButton>(R.id.rb_emagrecer)
 
-        val isSelected = (view as AppCompatRadioButton).isChecked
-        when (view.id) {
-            R.id.rb_manter -> {
-                if (isSelected) {
-                    radioButtonGanhar.setTextColor(Color.GRAY)
-                    radioButtonEmagrecer.setTextColor(Color.GRAY)
+    val isSelected = (view as AppCompatRadioButton).isChecked
+    when (view.id) {
+    R.id.rb_manter -> {
+    if (isSelected) {
+        radioButtonGanhar.setTextColor(Color.GRAY)
+        radioButtonEmagrecer.setTextColor(Color.GRAY)
 
 
-                }
-            }
-
-            R.id.rb_ganhar -> {
-                if (isSelected) {
-                    radioButtonManter.setTextColor(Color.GRAY)
-                    radioButtonEmagrecer.setTextColor(Color.GRAY)
-                }
-            }
-
-            R.id.rb_emagrecer -> {
-                radioButtonGanhar.setTextColor(Color.GRAY)
-                radioButtonManter.setTextColor(Color.GRAY)
-            }
-        }
     }
-}
+    }
+
+    R.id.rb_ganhar -> {
+    if (isSelected) {
+        radioButtonManter.setTextColor(Color.GRAY)
+        radioButtonEmagrecer.setTextColor(Color.GRAY)
+    }
+    }
+
+    R.id.rb_emagrecer -> {
+    radioButtonGanhar.setTextColor(Color.GRAY)
+    radioButtonManter.setTextColor(Color.GRAY)
+    }
+    }
+    }
+    }
