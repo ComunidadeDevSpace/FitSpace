@@ -1,30 +1,39 @@
 package com.app.fitspace.presentation.viewmodel
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.app.fitspace.data.local.AppDataBase
 import com.app.fitspace.data.model.User
+import com.app.fitspace.domain.repository.UserRepository
 import com.app.fitspace.data.repository.UserRepositoryImpl
 import kotlinx.coroutines.launch
 
 class UserViewModel(
-    private val userRepositoryImpl: UserRepositoryImpl
-) : ViewModel() {
+    application: Application
+) : AndroidViewModel(application) {
+
+    private val userRepository: UserRepository
+    init {
+        val userDao = AppDataBase.getInstance(application).userDao()
+        userRepository = UserRepositoryImpl(userDao)
+    }
 
     fun insertUser(user: User) {
         viewModelScope.launch {
-            userRepositoryImpl.insertUser(user)
+            userRepository.insertUser(user)
         }
     }
 
     fun updateUser(user: User) {
         viewModelScope.launch {
-            userRepositoryImpl.updateUser(user)
+            userRepository.updateUser(user)
         }
     }
 
     fun getUserByEmail(email: String) {
         viewModelScope.launch {
-            userRepositoryImpl.getUserByEmail(email)
+            userRepository.getUserByEmail(email)
         }
     }
 }

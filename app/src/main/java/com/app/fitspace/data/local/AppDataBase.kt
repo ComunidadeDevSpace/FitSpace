@@ -14,7 +14,7 @@ abstract class AppDataBase : RoomDatabase() {
         @Volatile
         private var INSTANCE: AppDataBase? = null
 
-        fun getDataBaseInstance(context: Context): AppDataBase {
+        fun getInstance(context: Context): AppDataBase {
             synchronized(this) {
                 var instance = INSTANCE
                 if (instance == null) {

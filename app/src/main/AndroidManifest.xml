@@ -4,18 +4,29 @@
 
     <application
         android:allowBackup="true"
+        android:name=".FitSpaceApplication"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:label="@string/app_name"
-        android:supportsRtl="true"
         android:icon="@drawable/icon_foreground"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/icon_foreground"
+        android:supportsRtl="true"
         android:theme="@style/Base.Theme.FitSpace"
         tools:targetApi="31">
         <activity
             android:name=".presentation.view.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.view.SplashActivity"
+            android:name=".presentation.view.SignUp"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.view.SignIn"
+            android:exported="false" />
+        <activity
+            android:name=".ui.GoalsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.view.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
