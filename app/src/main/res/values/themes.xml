@@ -7,6 +7,8 @@
         <item name="colorSecondary">@color/blue_02</item>
         <item name="colorTertiary">@color/orange</item>
         <item name="android:statusBarColor">@color/blue_04</item>
+
+        <item name="android:windowIsTranslucent">true</item>
     </style>
 
     <style name="Theme.FitSpace" parent="Base.Theme.FitSpace" />
