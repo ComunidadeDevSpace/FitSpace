@@ -35,6 +35,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    // Fragment Home
     <string name="body_mass_index">Índice de Massa Corporal</string>
     <string name="calories">Calorias</string>
     <string name="imc_icon">Ícone IMC</string>
@@ -45,5 +46,14 @@
     <string name="stretch_icon">Ícone Alongamentos</string>
     <string name="icon_routine">Ícone Rotinas Diárias</string>
     <string name="routines">Rotinas diárias</string>
-    <string name="dica">Dicas de saúde</string>
+    <string name="tips">Dicas de saúde</string>
+
+    // Fragment Settings
+    <string name="edit_profile">Editar perfil</string>
+    <string name="notifications">Notificações</string>
+    <string name="language">Idioma</string>
+    <string name="dark_mode">Tema escuro</string>
+    <string name="logout">Sair</string>
+    <string name="info">Sobre o aplicativo</string>
+
 </resources>
