@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">FitSpace</string>
     <string name="toolbarName">FitSpace</string>
+    <string name="TextWelcome">Bem vindo ao FitSpace</string>
     <string name="textName">Nome</string>
     <string name="hintName">Ex: João Silva</string>
     <string name="textEmail">Email</string>
@@ -10,6 +11,8 @@
     <string name="textPassword">Senha</string>
     <string name="hintPassword">********</string>
     <string name="textWarning">A senha precisa conter no mínimo 8 digitos, letras maiúsculas, letras minúsculas e números</string>
+    <string name="textWarning2">Dados incorretos</string>
+    <string name="textNewUser">Ainda não é cadastrado? <xliff:g id="link" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" example="register">Registra-se aqui.</xliff:g></string>
     <string name="textPhone">Número de telefone</string>
     <string name="hintPhone">Ex: +55 11 40028922</string>
     <string name="textDate">Data de nascimento</string>
@@ -56,4 +59,5 @@
     <string name="logout">Sair</string>
     <string name="info">Sobre o aplicativo</string>
 
+    <string name="textButtonEntrar">Entrar</string>
 </resources>
