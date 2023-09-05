@@ -18,7 +18,7 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar_sign_in"
-            style="@style/ToolbarStyle_sign_up"
+            style="@style/ToolbarStyle"
             android:layout_width="0dp"
             android:layout_height="?attr/actionBarSize"
             android:minHeight="?attr/actionBarSize"
@@ -35,9 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="26dp"
             android:text="@string/toolbarName"
-            android:textColor="@color/white"
-            android:textSize="22sp"
-            android:textStyle="bold"
+            style="@style/BoasVindas"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -78,7 +76,7 @@
 
         <EditText
             android:id="@+id/email_edt_text"
-            style="@style/Desc"
+            style="@style/Description"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/transparent"
@@ -109,7 +107,7 @@
 
         <EditText
             android:id="@+id/password_edt_text"
-            style="@style/Desc"
+            style="@style/Description"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/transparent"
@@ -138,7 +136,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="@string/textNewUser"
-        android:textColor="@color/black"
+        style="@style/Description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password_cardview" />

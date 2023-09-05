@@ -31,7 +31,7 @@
         <item name="android:textSize">14sp</item>
     </style>
 
-    <style name="Desc" parent="Widget.AppCompat.TextView">
+    <style name="Description" parent="Widget.AppCompat.TextView">
         <item name="fontFamily">@font/poppins_regular</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">14sp</item>
@@ -39,7 +39,7 @@
         <item name="android:layout_marginStart">10dp</item>
     </style>
 
-    <style name="Check" parent="Widget.AppCompat.TextView">
+    <style name="RadioButton" parent="Widget.AppCompat.TextView">
         <item name="fontFamily">@font/poppins_regular</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">14sp</item>
@@ -55,7 +55,7 @@
         <item name="fontFamily">@font/poppins_bold</item>
         <item name="android:textColor">@color/white</item>
         <item name="backgroundTint">@color/yellow_gold</item>
-        <item name="android:background">@drawable/btn_rounded_corner</item>
+        <item name="android:background">@drawable/btn_rounded_corner_darkmode</item>
     </style>
 
     <style name="TimePickerDialogTheme" parent="Theme.AppCompat.Light.Dialog">
