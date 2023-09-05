@@ -6,6 +6,6 @@
     android:background="@color/blue_02"
     android:id="@+id/toolbar_sign_up"
     app:titleTextColor="@color/white"
-    app:theme="@style/ToolbarStyle_sign_up">
+    app:theme="@style/ToolbarStyle">
 
 </androidx.appcompat.widget.Toolbar>

@@ -52,19 +52,19 @@ class SignIn : AppCompatActivity() {
          * 1 - created a user instance with your data
          * 2 - called ViewModel with the respective method and put the user object
          */
-        val user = User(
-            "Jeferson Barros",
-            "im.jbalves@gmail.com",
-            "jeff",
-            "123456",
-            "+554199999-9999",
-            "16/09/1985",
-            "male"
-        )
-        userViewModel.insertUser(user)
+//        val user = User(
+//            "Jeferson Barros",
+//            "im.jbalves@gmail.com",
+//            "jeff",
+//            "123456",
+//            "+554199999-9999",
+//            "16/09/1985",
+//            "male"
+//        )
+//          userViewModel.insertUser(user)
 
         binding.btnSave.setOnClickListener {
-            val intent = Intent(this, SignUp::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
     }

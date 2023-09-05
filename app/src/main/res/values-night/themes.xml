@@ -18,11 +18,18 @@
         <item name="android:textSize">24sp</item>
     </style>
 
-    <style name="BoasVindas" parent="Widget.AppCompat.TextView">
+    <style name="TookBarText" parent="Widget.AppCompat.TextView">
         <item name="fontFamily">@font/poppins_bold</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="BoasVindas" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">20sp</item>
     </style>
 
     <style name="Title" parent="Widget.AppCompat.TextView">

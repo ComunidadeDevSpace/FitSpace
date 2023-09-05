@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="26dp"
             android:text="@string/toolbarName"
-            style="@style/BoasVindas"
+            style="@style/TookBarText"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
