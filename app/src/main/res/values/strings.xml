@@ -46,4 +46,14 @@
     <string name="icon_routine">Ícone Rotinas Diárias</string>
     <string name="routines">Rotinas diárias</string>
     <string name="dica">Dicas de saúde</string>
+
+    <string-array name="WeeklyExercise">
+        <item>1 vez na semana</item>
+        <item>2 vezes na semana</item>
+        <item>3 vezes na semana</item>
+        <item>4 vezes na semana</item>
+        <item>5 vezes na semana</item>
+        <item>6 vezes na semana</item>
+        <item>7 vezes na semana</item>
+    </string-array>
 </resources>
