@@ -10,7 +10,6 @@ data class UserGoals(
     val id:Int = 0,
     val weight: Double,
     val height: Double,
-    /*
     val upperBody: Double,
     val neck: Double,
     val hips: Double,
@@ -22,7 +21,5 @@ data class UserGoals(
     val rightCalv:Double,
     val leftCalv:Double,
     val goal:String,
-    val weeklyExercise: Spinner
-
-     */
+    val weeklyExercise: String
 )

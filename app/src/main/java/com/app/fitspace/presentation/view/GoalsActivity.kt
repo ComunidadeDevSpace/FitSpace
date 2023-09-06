@@ -4,6 +4,7 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.AdapterView
 import android.widget.Button
 import android.widget.EditText
 import android.widget.RadioButton
@@ -18,6 +19,7 @@ import com.app.fitspace.utils.GoalsAction
 
 class GoalsActivity : AppCompatActivity() {
 
+    lateinit var spinnerSelected:String
 
     private val viewModel : UserGoalsViewModel by viewModels {
         UserGoalsViewModel.getVmFactory(application)
@@ -47,24 +49,75 @@ class GoalsActivity : AppCompatActivity() {
         val spinner = findViewById<Spinner>(R.id.spinner_weekly_exercise)
         val saveButton = findViewById<Button>(R.id.save_btn_goals)
 
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                val selectedSpinner = parent?.getItemAtPosition(position)
+                spinnerSelected = selectedSpinner.toString()
+
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                /*
+                val warning = findViewById<TextView>(R.id.emptyFieldWeeklyExercise)
+                warning.visibility = View.VISIBLE
+                Snackbar.make(saveButton, "Preencha os campos obrigatórios", Snackbar.LENGTH_LONG)
+                    .show()
+
+                 */
+            }
+
+        }
+
 
 
         saveButton.setOnClickListener {
             val weight = editTextWeight.text
             val height = editTextHeight.text
+            val upperBody = editTextUpperBody.text
+            val neck = editTextNeck.text
+            val hips = editTextHips.text
+            val waist = editTextWaist.text
+            val rightArm = editTextRightArm.text
+            val leftArm = editTextLeftArm.text
+            val rightThigh = editTextRightThigh.text
+            val leftThigh = editTextLeftThigh.text
+            val rightCalv = editTextRightCalv.text
+            val leftCalv = editTextLeftCalv.text
+            val goal = if (radioButtonEmagrecer.isSelected) "Emagrecer" else if (radioButtonManter.isSelected) "Manter" else "Ganhar"
+            val spinner = spinnerSelected
 
-            addOrUpdate(weight.toString().toDouble(),height.toString().toDouble(), ActionTypeGoals.INSERT,0)
+            addOrUpdate(weight.toString().toDouble(),height.toString().toDouble(), upperBody.toString().toDouble(),
+                neck.toString().toDouble(),hips.toString().toDouble(),waist.toString().toDouble(),rightArm.toString().toDouble(),
+                leftArm.toString().toDouble(),rightThigh.toString().toDouble(),leftThigh.toString().toDouble(), rightCalv.toString().toDouble(),
+                leftCalv.toString().toDouble(),goal,spinner,ActionTypeGoals.INSERT,0)
         }
 
 
     }
 
-    fun addOrUpdate(
+    private fun addOrUpdate(
         weight:Double,
         height: Double,
+        upperBody:Double,
+        neck:Double,
+        hips:Double,
+        waist:Double,
+        rightArm:Double,
+        leftArm:Double,
+        rightThigh:Double,
+        leftThigh:Double,
+        rightCalv:Double,
+        leftCalv:Double,
+        goal:String,
+        weeklyExercise:String,
         actionTypeGoals: ActionTypeGoals,
         id:Int){
-        val userGoals = UserGoals(id,weight,height)
+        val userGoals = UserGoals(id,weight,height,upperBody,neck,hips, waist, rightArm, leftArm, rightThigh, leftThigh, rightCalv, leftCalv,goal,weeklyExercise)
         performAction(userGoals,actionTypeGoals)
     }
 
