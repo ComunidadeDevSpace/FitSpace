@@ -5,6 +5,8 @@ import android.widget.EditText
 import androidx.lifecycle.AndroidViewModel
 import com.app.fitspace.data.local.AppDatabase
 import com.app.fitspace.data.local.UserDao
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 
 class SignInViewModel(
@@ -18,14 +20,15 @@ class SignInViewModel(
         userDao = AppDatabase.getInstance(application).userDao()
     }
 
-    fun validaLoginPass(emailEditText: EditText, passwordEditText: EditText): Boolean {
+    suspend fun validaLoginPass(emailEditText: EditText, passwordEditText: EditText): Boolean {
         val email = emailEditText.text.toString()
         val password = passwordEditText.text.toString()
         if (email.isBlank() || password.isBlank()) return false
-        val user = userDao.getUserByEmailAndPassword(email, password);
 
-
-        return user != null
+        return withContext(Dispatchers.IO) {
+            val user = userDao.getUserByEmailAndPassword(email, password)
+            user != null
+        }
     }
 
     // função para validar conexão com internet

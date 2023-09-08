@@ -12,9 +12,12 @@ import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import com.app.fitspace.R
 import com.app.fitspace.databinding.ActivitySignInBinding
 import com.app.fitspace.presentation.viewmodel.SignInViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
 class SignIn : AppCompatActivity() {
@@ -53,34 +56,29 @@ class SignIn : AppCompatActivity() {
         textViewLink.movementMethod = LinkMovementMethod.getInstance()
 
 
-
-
-
         val factory = ViewModelProvider.AndroidViewModelFactory.getInstance(application)
         signViewModel = ViewModelProvider(this, factory).get(SignInViewModel::class.java)
 
 
-        val userEmail = findViewById<EditText>(R.id.email_edt_text)
-        val userPassword = findViewById<EditText>(R.id.password_edt_text)
-
-
         binding.btnSave.setOnClickListener {
+            val userEmail = findViewById<EditText>(R.id.email_edt_text)
+            val userPassword = findViewById<EditText>(R.id.password_edt_text)
 
+            // Usar uma corrotina para executar a validação em segundo plano
+            lifecycleScope.launch(Dispatchers.Main) {
+                val isUserLogged = signViewModel.validaLoginPass(userEmail, userPassword)
 
-            val isUserLoged = signViewModel.validaLoginPass(userEmail,userPassword)
-
-
-            if (isUserLoged) {
-
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-
-            } else {
-                Toast.makeText(this, "Verifique se Email e Senha estão preenchidos ou corretos", Toast.LENGTH_SHORT)
-                    .show()
+                if (isUserLogged) {
+                    val intent = Intent(this@SignIn, MainActivity::class.java)
+                    startActivity(intent)
+                } else {
+                    Toast.makeText(
+                        this@SignIn,
+                        "Verifique se Email e Senha estão preenchidos ou incorretos",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
-
-
         }
     }
 }
