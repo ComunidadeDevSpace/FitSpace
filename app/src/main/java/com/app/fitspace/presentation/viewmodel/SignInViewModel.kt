@@ -1,34 +1,50 @@
 package com.app.fitspace.presentation.viewmodel
 
 import android.app.Application
-import android.content.Context
-import android.net.ConnectivityManager
-import android.net.NetworkCapabilities
-import android.os.Build
-import androidx.core.content.getSystemService
+import android.widget.EditText
 import androidx.lifecycle.AndroidViewModel
+import com.app.fitspace.data.local.AppDatabase
+import com.app.fitspace.data.local.UserDao
+
 
 class SignInViewModel(
     application: Application
 ) : AndroidViewModel(application) {
 
+    private lateinit var userDao: UserDao
+
+
+    init {
+        userDao = AppDatabase.getInstance(application).userDao()
+    }
+
+    fun validaLoginPass(emailEditText: EditText, passwordEditText: EditText): Boolean {
+        val email = emailEditText.text.toString()
+        val password = passwordEditText.text.toString()
+        if (email.isBlank() || password.isBlank()) return false
+        val user = userDao.getUserByEmailAndPassword(email, password);
+
+
+        return user != null
+    }
 
     // função para validar conexão com internet
-    private fun isNetworkAvailable(context: Context): Boolean {
-            val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                val network = connectivityManager.activeNetwork
-                val networkCapabilities = connectivityManager.getNetworkCapabilities(network)
-                return networkCapabilities != null &&
-                        (networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ||
-                                networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR))
-            } else {
-                val activeNetworkInfo = connectivityManager.activeNetworkInfo
-                return activeNetworkInfo != null && activeNetworkInfo.isConnected
-            }
-        }
+//    private fun isNetworkAvailable(context: Context): Boolean {
+//        val connectivityManager =
+//            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+//
+//
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+//            val network = connectivityManager.activeNetwork
+//            val networkCapabilities = connectivityManager.getNetworkCapabilities(network)
+//            return networkCapabilities != null &&
+//                    (networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ||
+//                            networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR))
+//        } else {
+//            val activeNetworkInfo = connectivityManager.activeNetworkInfo
+//            return activeNetworkInfo != null && activeNetworkInfo.isConnected
+//        }
+//    }
 
 
 }
