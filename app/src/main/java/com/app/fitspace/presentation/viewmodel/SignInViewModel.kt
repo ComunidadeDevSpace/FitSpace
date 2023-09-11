@@ -1,9 +1,8 @@
 package com.app.fitspace.presentation.viewmodel
 
 import android.app.Application
-import android.widget.EditText
 import androidx.lifecycle.AndroidViewModel
-import com.app.fitspace.data.local.AppDatabase
+import com.app.fitspace.data.local.AppDataBase
 import com.app.fitspace.data.local.UserDao
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -17,7 +16,7 @@ class SignInViewModel(
 
 
     init {
-        userDao = AppDatabase.getInstance(application).userDao()
+        userDao = AppDataBase.getInstance(application).userDao()
     }
 
     suspend fun validaLoginPass(email: String, password: String): Boolean {
