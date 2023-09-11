@@ -11,6 +11,10 @@ import com.app.fitspace.data.model.User
 @Dao
 interface UserDao {
 
+
+    @Query("SELECT * FROM user WHERE email = :email AND password = :password")
+    fun getUserByEmailAndPassword(email: String, password: String): User?
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(user: User)
 

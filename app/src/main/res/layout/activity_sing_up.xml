@@ -17,7 +17,7 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar_sign_up"
-            style="@style/ToolbarStyle_sign_up"
+            style="@style/ToolbarStyle"
             android:layout_width="0dp"
             android:layout_height="?attr/actionBarSize"
             android:minHeight="?attr/actionBarSize"
@@ -44,9 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="26dp"
             android:text="@string/toolbarName"
-            android:textColor="@color/white"
-            android:textSize="22sp"
-            android:textStyle="bold"
+            style="@style/BoasVindas"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/back_toolbar"
             app:layout_constraintTop_toTopOf="parent" />
@@ -65,7 +63,7 @@
 
             <TextView
                 android:id="@+id/textview_name"
-                style="@style/signup_title"
+                style="@style/Title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/textName"
@@ -84,7 +82,7 @@
 
                 <EditText
                     android:id="@+id/name_edt_text"
-                    style="@style/signup_desc"
+                    style="@style/Description"
                     android:inputType="text"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -95,7 +93,7 @@
 
             <TextView
                 android:id="@+id/textview_email"
-                style="@style/signup_title"
+                style="@style/Title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/textEmail"
@@ -115,7 +113,7 @@
 
                 <EditText
                     android:id="@+id/email_edt_text"
-                    style="@style/signup_desc"
+                    style="@style/Description"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent"
@@ -127,7 +125,7 @@
                 android:id="@+id/textview_nick"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/signup_title"
+                style="@style/Title"
                 android:text="@string/textNick"
                 android:layout_marginTop="12dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -145,7 +143,7 @@
 
                 <EditText
                     android:id="@+id/nick_edt_text"
-                    style="@style/signup_desc"
+                    style="@style/Description"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent"
@@ -157,7 +155,7 @@
                 android:id="@+id/textview_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/signup_title"
+                style="@style/Title"
                 android:text="@string/textPassword"
                 android:layout_marginTop="12dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -175,7 +173,7 @@
 
                 <EditText
                     android:id="@+id/password_edt_text"
-                    style="@style/signup_desc"
+                    style="@style/Description"
                     android:maxLength="16"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -192,8 +190,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="@string/textWarning"
-                android:textColor="#810404"
-                android:textSize="11sp"
+                style="@style/Erro"
                 android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/password_cardview"
@@ -203,7 +200,7 @@
                 android:id="@+id/textview_phonenumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/signup_title"
+                style="@style/Title"
                 android:text="@string/textPhone"
                 android:layout_marginTop="12dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -221,7 +218,7 @@
 
                 <EditText
                     android:id="@+id/phone_edt_text"
-                    style="@style/signup_desc"
+                    style="@style/Description"
                     android:inputType="phone"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -235,7 +232,7 @@
                 android:id="@+id/textview_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/signup_title"
+                style="@style/Title"
                 android:text="@string/textDate"
                 android:layout_marginTop="12dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -257,7 +254,7 @@
 
                     <TextView
                         android:id="@+id/date_edt_text"
-                        style="@style/signup_desc"
+                        style="@style/Description"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
@@ -288,7 +285,7 @@
                 android:id="@+id/textview_gender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/signup_title"
+                style="@style/Title"
                 android:text="@string/textGender"
                 android:layout_marginTop="12dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -307,7 +304,7 @@
 
                     <androidx.appcompat.widget.AppCompatRadioButton
                         android:id="@+id/rb_female"
-                        style="@style/signup_check"
+                        style="@style/RadioButton"
                         android:layout_width="95dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -321,7 +318,7 @@
 
                     <androidx.appcompat.widget.AppCompatRadioButton
                         android:id="@+id/rb_male"
-                        style="@style/signup_check"
+                        style="@style/RadioButton"
                         android:layout_width="95dp"
                         android:layout_height="wrap_content"
                         android:background="@drawable/radio_button_selected"
