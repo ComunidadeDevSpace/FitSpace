@@ -66,7 +66,7 @@ class SignIn : AppCompatActivity() {
 
             // Usar uma corrotina para executar a validação em segundo plano
             lifecycleScope.launch(Dispatchers.Main) {
-                val isUserLogged = signViewModel.validaLoginPass(userEmail, userPassword)
+                val isUserLogged = signViewModel.validaLoginPass(userEmail.text.toString(), userPassword.text.toString())
 
                 if (isUserLogged) {
                     val intent = Intent(this@SignIn, MainActivity::class.java)

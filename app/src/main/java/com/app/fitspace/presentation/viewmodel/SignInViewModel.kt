@@ -13,17 +13,16 @@ class SignInViewModel(
     application: Application
 ) : AndroidViewModel(application) {
 
-    private lateinit var userDao: UserDao
+    private var userDao: UserDao
 
 
     init {
         userDao = AppDatabase.getInstance(application).userDao()
     }
 
-    suspend fun validaLoginPass(emailEditText: EditText, passwordEditText: EditText): Boolean {
-        val email = emailEditText.text.toString()
-        val password = passwordEditText.text.toString()
-        if (email.isBlank() || password.isBlank()) return false
+    suspend fun validaLoginPass(email: String, password: String): Boolean {
+
+        if (email.isEmpty() || password.isEmpty()) return false
 
         return withContext(Dispatchers.IO) {
             val user = userDao.getUserByEmailAndPassword(email, password)
