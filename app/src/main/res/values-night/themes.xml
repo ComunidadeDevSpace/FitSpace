@@ -2,13 +2,29 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.FitSpaceDark" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+
+        <!-- Primary brand color. -->
         <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryVariant">@color/black_42</item>
+        <item name="colorOnPrimary">@color/black_coffe</item>
+        <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/yellow_gold</item>
+        <item name="colorSecondaryVariant">@color/chrysler_gold</item>
+        <item name="colorOnSecondary">@color/gold</item>
+
+        <!-- Tertiary brand color -->
         <item name="colorTertiary">@color/safety_yellow</item>
+
+        <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/black_42</item>
+
+        <!-- Customize your theme here. -->
+        <item name="android:windowIsTranslucent">true</item>
     </style>
 
+    <style name="LinkTextColor" parent="Widget.AppCompat.TextView">
+        <item name="android:textColorLink">@color/white</item>
+    </style>
 
     <style name="ToolbarStyle" parent="@style/Widget.AppCompat.Toolbar">
         <item name="android:text">FitSpace</item>

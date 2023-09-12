@@ -2,8 +2,11 @@
 <resources>
     <color name="black">#000000</color>
     <color name="black_42">#6B000000</color>
+    <color name="black_coffe">#1b1811</color>
     <color name="white">#FFFFFF</color>
     <color name="safety_yellow">#ECA20C</color>
+    <color name="chrysler_gold">#cfa959</color>
+    <color name="gold">#a57c00</color>
     <color name="orange">#E46A15</color>
     <color name="yellow_gold">#DFC76C</color>
     <color name="blue_background">#EFF8FF</color>

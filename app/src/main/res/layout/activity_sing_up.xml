@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue_background"
     tools:context=".presentation.view.SignUp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -315,6 +314,8 @@
                         android:onClick="onRadioButtonClicked"
                         app:layout_constraintTop_toTopOf="parent"
                         android:text="@string/rbFemale" />
+
+
 
                     <androidx.appcompat.widget.AppCompatRadioButton
                         android:id="@+id/rb_male"
