@@ -21,5 +21,5 @@ data class UserGoals(
     val rightCalv:Double,
     val leftCalv:Double,
     val goal:String,
-    val weeklyExercise: String
+    val weeklyExercise: String,
 )
