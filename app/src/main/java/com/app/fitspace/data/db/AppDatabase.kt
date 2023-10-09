@@ -8,19 +8,19 @@ import com.app.fitspace.data.local.UserDao
 import com.app.fitspace.data.model.user.User
 
 @Database(entities = [User::class], version = 1)
-abstract class AppDatabase : RoomDatabase() {
+abstract class AppDataBase : RoomDatabase() {
     abstract fun userDao(): UserDao
 
     companion object {
         @Volatile
-        private var INSTANCE: AppDatabase? = null
+        private var INSTANCE: AppDataBase? = null
 
-        fun getInstance(context: Context): AppDatabase {
+        fun getInstance(context: Context): AppDataBase {
             synchronized(this) {
                 var instance = INSTANCE
                 if (instance == null) {
                     instance = Room.databaseBuilder(
-                        context.applicationContext, AppDatabase::class.java, "user_db"
+                        context.applicationContext, AppDataBase::class.java, "user_db"
                     ).build()
                 }
                 return instance
