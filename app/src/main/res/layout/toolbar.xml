@@ -3,9 +3,24 @@
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/blue_01"
+    android:background="@color/blue_02"
     android:id="@+id/toolbar_sign_up"
-    app:titleTextColor="@color/white"
-    app:theme="@style/ToolbarStyle_sign_up">
+    >
+
+    <ImageView
+            android:id="@+id/iv_toolbar_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/profile_both"
+            />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FULANO,"
+            android:layout_marginStart="25dp"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.appcompat.widget.Toolbar>

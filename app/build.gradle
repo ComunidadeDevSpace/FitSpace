@@ -45,6 +45,8 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.preference:preference:1.2.0'
+    implementation 'com.google.android.material:material:1.5.0'
 
 //    // Room
 //    implementation("androidx.room:room-runtime:2.5.1")
@@ -88,5 +90,8 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     // LiveData
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+
+    implementation"com.theartofdev.edmodo:android-image-cropper:2.8.0"
+    implementation 'com.squareup.picasso:picasso:2.5.2'
 }
 

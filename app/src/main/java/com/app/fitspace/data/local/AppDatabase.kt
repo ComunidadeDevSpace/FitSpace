@@ -5,10 +5,14 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.app.fitspace.data.model.User
+import com.app.fitspace.data.model.UserGoals
 
-@Database(entities = [User::class], version = 1)
+@Database(entities = [User::class, UserGoals::class, ProfilePicture::class], version = 2)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
+    abstract fun userGoalsDao(): UserGoalsDao
+
+    abstract fun ProfilePictureDao():ProfilePictureDao
 
     companion object {
         @Volatile
