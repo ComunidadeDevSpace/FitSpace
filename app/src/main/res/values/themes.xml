@@ -68,4 +68,12 @@
         <item name="colorAccent">#E46A15</item>
     </style>
 
+    <style name="CardViewMain" parent="CardView">
+        <item name="fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
 </resources>

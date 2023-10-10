@@ -2,7 +2,7 @@ package com.app.fitspace
 
 import android.app.Application
 import androidx.room.Room
-import com.app.fitspace.data.local.AppDataBase
+import com.app.fitspace.data.db.AppDataBase
 
 
 class FitSpaceApplication: Application() {

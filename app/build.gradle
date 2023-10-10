@@ -94,7 +94,6 @@ dependencies {
 
     //Splash Screen
    //implementation "androidx.core:core-splashscreen:1.0.0"
-}
 
     // News API
     implementation 'com.squareup.okhttp3:okhttp:4.11.0'

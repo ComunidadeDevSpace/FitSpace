@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="120dp"
-    android:layout_margin="12dp"
-    app:cardCornerRadius="10dp">
+    android:layout_margin="4dp"
+    app:cardCornerRadius="10dp"
+    style="@style/CardView">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/blue_background"
         android:orientation="vertical">
 
         <ImageView
