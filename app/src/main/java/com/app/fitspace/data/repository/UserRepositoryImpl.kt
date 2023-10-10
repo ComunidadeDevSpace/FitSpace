@@ -17,5 +17,4 @@ class UserRepositoryImpl(private val userDao: UserDao) : UserRepository {
     override suspend fun getUserByEmail(email: String): LiveData<List<User>> {
         return userDao.getUserByEmail(email)
     }
-
 }
