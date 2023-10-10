@@ -8,5 +8,7 @@ enum class ActionTypeGoals {
     UPDATE
 }
 
-data class GoalsAction(val userGoals: UserGoals?,
-                       val actionType:String) : Serializable
+data class GoalsAction(
+    val userGoals: UserGoals?,
+    val actionType: String
+) : Serializable

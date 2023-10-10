@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue_background"
+    tools:context=".presentation.view.ImcActivity">
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/toolbar" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        style="@style/imc_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="40dp"
+        android:text="Seu Índice de Massa Corporal é:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        app:strokeColor="@color/orange"
+        app:strokeWidth="4dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/blue_background">
+
+            <TextView
+                android:id="@+id/text_view_imc_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="6dp"
+                android:text="25,5"
+                android:maxLines="1"
+                android:maxLength="5"
+                android:textSize="48sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/text_view_classificacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Sobrepeso"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_classificacao">
+
+        <TextView
+            style="@style/imc_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ele é, na verdade, uma pré-obesidade e muitas pessoas nessa faixa já apresentam doenças associadas, como diabetes e hipertensão. Importante rever hábitos e buscar ajuda antes de, por uma série de fatores, entrar na faixa da obesidade pra valer." />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/arrow_down"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:visibility="visible"
+        android:src="@drawable/ic_arrow_down"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout" />
+
+    <ImageView
+        android:id="@+id/arrow_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:visibility="invisible"
+        android:src="@drawable/baseline_arrow_drop_up_24"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout" />
+
+    <TextView
+        android:id="@+id/text_view_tabela"
+        style="@style/imc_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="Ver tabela do IMC"
+        app:layout_constraintStart_toEndOf="@+id/arrow_up"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/information_card"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:visibility="visible"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_tabela"
+        app:strokeColor="@color/orange"
+        app:strokeWidth="4dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/blue_background"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/abaixo_do_peso"
+                style="@style/imc_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Abaixo do Normal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/normal"
+                style="@style/imc_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Normal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/abaixo_do_peso" />
+
+            <TextView
+                android:id="@+id/sobrepeso"
+                style="@style/imc_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sobrepeso"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/normal" />
+
+            <TextView
+                android:id="@+id/obesidadeI"
+                style="@style/imc_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Obesidade grau I"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/sobrepeso" />
+
+            <TextView
+                android:id="@+id/obesidadeII"
+                style="@style/imc_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Obesidade grau II"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/obesidadeI" />
+
+            <TextView
+                android:id="@+id/obesidadeIII"
+                style="@style/imc_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Obesidade grau III"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/obesidadeII" />
+
+            <TextView
+                android:id="@+id/abaixo_do_peso2"
+                style="@style/imc_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="14dp"
+                android:text="18,5 ou menos"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/abaixo_do_peso" />
+
+            <TextView
+                android:id="@+id/normal2"
+                style="@style/imc_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Entre 18,6 e 24,9"
+                app:layout_constraintStart_toStartOf="@+id/abaixo_do_peso2"
+                app:layout_constraintTop_toBottomOf="@+id/abaixo_do_peso2" />
+
+            <TextView
+                android:id="@+id/sobrepeso2"
+                style="@style/imc_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Entre 25,0 e 29,9"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/abaixo_do_peso2"
+                app:layout_constraintTop_toBottomOf="@+id/normal2" />
+
+            <TextView
+                android:id="@+id/obesidadeI2"
+                style="@style/imc_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Entre 30,0 e 34,9"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/sobrepeso2"
+                app:layout_constraintTop_toBottomOf="@+id/sobrepeso2" />
+
+            <TextView
+                android:id="@+id/obesidadeII2"
+                style="@style/imc_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Entre 35,0 e 39,9"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/obesidadeI2"
+                app:layout_constraintTop_toBottomOf="@+id/obesidadeI2" />
+
+            <TextView
+                android:id="@+id/obesidadeIII2"
+                style="@style/imc_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Acima de 40,0"
+                app:layout_constraintStart_toStartOf="@+id/obesidadeII2"
+                app:layout_constraintTop_toBottomOf="@+id/obesidadeII2" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

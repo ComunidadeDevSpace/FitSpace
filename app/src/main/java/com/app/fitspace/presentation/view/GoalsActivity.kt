@@ -19,14 +19,13 @@ import com.app.fitspace.utils.GoalsAction
 class GoalsActivity : AppCompatActivity() {
 
 
-    private val viewModel : UserGoalsViewModel by viewModels {
+    private val viewModel: UserGoalsViewModel by viewModels {
         UserGoalsViewModel.getVmFactory(application)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_goals)
-
 
 
         val editTextWeight = findViewById<EditText>(R.id.edit_weight)
@@ -53,57 +52,59 @@ class GoalsActivity : AppCompatActivity() {
             val weight = editTextWeight.text
             val height = editTextHeight.text
 
-            addOrUpdate(weight.toString().toDouble(),height.toString().toDouble(), ActionTypeGoals.INSERT,0)
+            addOrUpdate(
+                weight.toString().toDouble(),
+                height.toString().toDouble(),
+                ActionTypeGoals.INSERT,
+                0
+            )
         }
-
-
     }
 
     fun addOrUpdate(
-        weight:Double,
+        weight: Double,
         height: Double,
         actionTypeGoals: ActionTypeGoals,
-        id:Int){
-        val userGoals = UserGoals(id,weight,height)
-        performAction(userGoals,actionTypeGoals)
+        id: Int
+    ) {
+        val userGoals = UserGoals(id, weight, height)
+        performAction(userGoals, actionTypeGoals)
     }
 
-    private fun performAction(userGoals: UserGoals, actionType: ActionTypeGoals){
+    private fun performAction(userGoals: UserGoals, actionType: ActionTypeGoals) {
         val goalsAction = GoalsAction(userGoals, actionType.name)
         viewModel.execute(goalsAction)
         finish()
     }
 
 
-
-
     fun onRadioButtonClicked(view: View) {
-    val radioButtonManter = findViewById<RadioButton>(R.id.rb_manter)
-    val radioButtonGanhar = findViewById<RadioButton>(R.id.rb_ganhar)
-    val radioButtonEmagrecer = findViewById<RadioButton>(R.id.rb_emagrecer)
+        val radioButtonManter = findViewById<RadioButton>(R.id.rb_manter)
+        val radioButtonGanhar = findViewById<RadioButton>(R.id.rb_ganhar)
+        val radioButtonEmagrecer = findViewById<RadioButton>(R.id.rb_emagrecer)
 
-    val isSelected = (view as AppCompatRadioButton).isChecked
-    when (view.id) {
-    R.id.rb_manter -> {
-    if (isSelected) {
-        radioButtonGanhar.setTextColor(Color.GRAY)
-        radioButtonEmagrecer.setTextColor(Color.GRAY)
+        val isSelected = (view as AppCompatRadioButton).isChecked
+        when (view.id) {
+            R.id.rb_manter -> {
+                if (isSelected) {
+                    radioButtonGanhar.setTextColor(Color.GRAY)
+                    radioButtonEmagrecer.setTextColor(Color.GRAY)
 
 
-    }
-    }
+                }
+            }
 
-    R.id.rb_ganhar -> {
-    if (isSelected) {
-        radioButtonManter.setTextColor(Color.GRAY)
-        radioButtonEmagrecer.setTextColor(Color.GRAY)
-    }
-    }
+            R.id.rb_ganhar -> {
+                if (isSelected) {
+                    radioButtonManter.setTextColor(Color.GRAY)
+                    radioButtonEmagrecer.setTextColor(Color.GRAY)
+                }
+            }
 
-    R.id.rb_emagrecer -> {
-    radioButtonGanhar.setTextColor(Color.GRAY)
-    radioButtonManter.setTextColor(Color.GRAY)
+            R.id.rb_emagrecer -> {
+                radioButtonGanhar.setTextColor(Color.GRAY)
+                radioButtonManter.setTextColor(Color.GRAY)
+            }
+        }
     }
-    }
-    }
-    }
+}
