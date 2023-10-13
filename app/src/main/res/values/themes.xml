@@ -48,5 +48,9 @@
     <style name="TimePickerDialogTheme" parent="Theme.AppCompat.Light.Dialog">
         <item name="colorAccent">#E46A15</item>
     </style>
+    
+    <style name="DialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="positiveButtonText">@color/blue_01</item>
+    </style>
 
 </resources>
