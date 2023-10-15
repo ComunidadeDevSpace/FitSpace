@@ -56,4 +56,9 @@
     <string name="logout">Sair</string>
     <string name="info">Sobre o aplicativo</string>
 
+    // Feature Settings About
+    <string name="vesion">Versão 1.0</string>
+    <string name="Creator">Vernardo Oechsler, Gabriel Levindo, Jeferson Barros,\n Samuel Gil, Sergio Bismark, Victor Boico</string>
+    <string name="More">Aplicativo criado em ambito de estudo para aperfeiçoamento de nossas habilidades, dentro da comunidade DevSpace</string>
+
 </resources>
