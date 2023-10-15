@@ -15,7 +15,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatRadioButton
 import androidx.cardview.widget.CardView
 import com.app.fitspace.R
-import com.app.fitspace.data.local.AppDatabase
+import com.app.fitspace.data.local.AppDataBase
 import com.app.fitspace.data.local.UserDao
 import com.app.fitspace.data.model.User
 import com.google.android.material.snackbar.Snackbar
@@ -39,7 +39,7 @@ class SignUp : AppCompatActivity() {
         val passwordWarning = findViewById<TextView>(R.id.textView_warning)
         val btnSave = findViewById<Button>(R.id.btn_save)
 
-        userDao = AppDatabase.getInstance(this).userDao()
+        userDao = AppDataBase.getInstance(this).userDao()
 
         val userId = intent.getLongExtra("userId", 0)
 
