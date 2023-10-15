@@ -15,6 +15,9 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatRadioButton
 import androidx.cardview.widget.CardView
 import com.app.fitspace.R
+import com.app.fitspace.data.local.AppDataBase
+import com.app.fitspace.data.local.UserDao
+import com.app.fitspace.data.model.User
 import com.google.android.material.snackbar.Snackbar
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -24,24 +27,75 @@ class SignUp : AppCompatActivity() {
 
     private var selectedDate: String? = null
     private lateinit var dateText: TextView
-    private lateinit var rbGroup: RadioGroup
     private lateinit var rbFemale: RadioButton
     private lateinit var rbMale: RadioButton
+    private lateinit var userDao: UserDao
+    private var currentUser: User? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sing_up)
+        setContentView(R.layout.activity_sign_up)
 
-        val edtPassword = findViewById<EditText>(R.id.password_edt_text)
-        val passwordWarming = findViewById<TextView>(R.id.textView_warning)
+        val passwordWarning = findViewById<TextView>(R.id.textView_warning)
         val btnSave = findViewById<Button>(R.id.btn_save)
 
+        userDao = AppDataBase.getInstance(this).userDao()
+
+        val userId = intent.getLongExtra("userId", 0)
+
+        currentUser = userDao.getUserById(userId)
+
+        val nameEditText = findViewById<EditText>(R.id.name_edt_text)
+        val emailEditText = findViewById<EditText>(R.id.email_edt_text)
+        val nicknameEditText = findViewById<EditText>(R.id.nick_edt_text)
+        val passwordEditText = findViewById<EditText>(R.id.password_edt_text)
+        val phoneEditText = findViewById<EditText>(R.id.phone_edt_text)
+        val birthTextView = findViewById<TextView>(R.id.textview_date)
+        val genderRadioGroup = findViewById<RadioGroup>(R.id.radiogroup_gender)
+
+        currentUser?.let {
+            nameEditText.setText(it.name)
+            emailEditText.setText(it.email)
+            nicknameEditText.setText(it.nickname)
+            passwordEditText.setText(it.password)
+            phoneEditText.setText(it.phone)
+            birthTextView.text = it.birth
+        }
+
         btnSave.setOnClickListener {
-            if(isPasswordValid(edtPassword.text.toString())){
+            if(isPasswordValid(passwordEditText.text.toString())){
+
+                val name = nameEditText.text.toString()
+                val email = emailEditText.text.toString()
+                val nickname = nicknameEditText.text.toString()
+                val password = passwordEditText.text.toString()
+                val phone = phoneEditText.text.toString()
+                val birth = birthTextView.text.toString()
+                val gender = genderRadioGroup.isSelected.toString()
+
+                if (currentUser == null) {
+                    // Se currentUser for nulo, insira um novo usuário
+                    val newUser = User(name = name, email = email, nickname = nickname, password = password, phone = phone, birth = birth, gender = gender)
+                    val userId = userDao.insertUser(newUser)
+                    currentUser = userDao.getUserById(userId)
+                } else {
+                    // Se currentUser não for nulo, o usuário existente é atualizado
+                    currentUser?.apply {
+                        this.name = name
+                        this.email = email
+                        this.nickname = nickname
+                        this.password = password
+                        this.phone = phone
+                        this.birth = birth
+                        this.gender = gender
+                    }
+                    userDao.updateUser(currentUser!!)
+                }
+
                 finish()
 
-            } else if (!isPasswordValid(edtPassword.text.toString())){
-                passwordWarming.visibility = View.VISIBLE
+            } else if (!isPasswordValid(passwordEditText.text.toString())){
+                passwordWarning.visibility = View.VISIBLE
                 Snackbar.make(btnSave, "Senha inválida", Snackbar.LENGTH_LONG).show()
             }
         }
@@ -77,7 +131,6 @@ class SignUp : AppCompatActivity() {
             ).show()
         }
 
-        rbGroup = findViewById(R.id.radiogroup_gender)
         rbFemale = findViewById(R.id.rb_female)
         rbMale = findViewById(R.id.rb_male)
     }

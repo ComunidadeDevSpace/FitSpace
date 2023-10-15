@@ -19,4 +19,13 @@ interface UserDao {
 
     @Query("SELECT * FROM User WHERE email = :email")
     fun getUserByEmail(email: String): LiveData<List<User>>
+
+    @Query("SELECT * FROM User WHERE id = :userId")
+    fun getUserById(userId: Long): User
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertUser(user: User): Long
+
+    @Update
+    fun updateUser(user: User)
 }

@@ -18,4 +18,47 @@
     <string name="rbFemale">Mulher</string>
     <string name="rbMale">Homem</string>
     <string name="textButton">Salvar</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    // Fragment Home
+    <string name="body_mass_index">Índice de Massa Corporal</string>
+    <string name="calories">Calorias</string>
+    <string name="imc_icon">Ícone IMC</string>
+    <string name="calories_icon">Ícone Calorias</string>
+    <string name="goal">Objetivos</string>
+    <string name="stretch">Alogamentos</string>
+    <string name="goal_icon">Ícone Objetivos</string>
+    <string name="stretch_icon">Ícone Alongamentos</string>
+    <string name="icon_routine">Ícone Rotinas Diárias</string>
+    <string name="routines">Rotinas diárias</string>
+    <string name="tips">Dicas de saúde</string>
+
+    // Fragment Settings
+    <string name="edit_profile">Editar perfil</string>
+    <string name="notifications">Notificações</string>
+    <string name="language">Idioma</string>
+    <string name="dark_mode">Tema escuro</string>
+    <string name="logout">Sair</string>
+    <string name="info">Sobre o aplicativo</string>
+
+    // Feature Settings About
+    <string name="vesion">Versão 1.0</string>
+    <string name="Creator">Vernardo Oechsler, Gabriel Levindo, Jeferson Barros,\n Samuel Gil, Sergio Bismark, Victor Boico</string>
+    <string name="More">Aplicativo criado em ambito de estudo para aperfeiçoamento de nossas habilidades, dentro da comunidade DevSpace</string>
+
 </resources>
