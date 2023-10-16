@@ -30,7 +30,7 @@ class SignUp : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sing_up)
+        setContentView(R.layout.activity_sign_up)
 
         val edtPassword = findViewById<EditText>(R.id.password_edt_text)
         val passwordWarming = findViewById<TextView>(R.id.textView_warning)

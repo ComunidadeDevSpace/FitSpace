@@ -3,8 +3,8 @@ package com.app.fitspace.presentation.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.app.fitspace.data.local.AppDataBase
-import com.app.fitspace.data.model.User
+import com.app.fitspace.data.db.AppDataBase
+import com.app.fitspace.data.model.user.User
 import com.app.fitspace.domain.repository.UserRepository
 import com.app.fitspace.data.repository.UserRepositoryImpl
 import kotlinx.coroutines.launch

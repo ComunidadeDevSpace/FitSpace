@@ -1,0 +1,6 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Estado quando o RadioButton estiver selecionado -->
+    <item android:drawable="@drawable/rb_goals_selected" android:state_checked="true" />
+    <!-- Estado quando o RadioButton não estiver selecionado -->
+    <item android:drawable="@drawable/rb_goals_unselected" />
+</selector>
