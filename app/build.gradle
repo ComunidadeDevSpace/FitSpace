@@ -36,10 +36,6 @@ android {
         viewBinding true
         dataBinding true
     }
-
-    viewBinding {
-        enabled = true
-    }
 }
 
 dependencies {
@@ -61,6 +57,9 @@ dependencies {
     // To use Kotlin annotation processing tool (kapt)
     kapt("androidx.room:room-compiler:$room_version")
 
+    //Data Binding
+    def databinding_version = "4.3.1"
+    implementation "androidx.databinding:databinding-runtime:$databinding_version"
 
     // Navigation
     implementation('androidx.navigation:navigation-fragment-ktx:2.6.0')
@@ -94,13 +93,5 @@ dependencies {
 
     //Splash Screen
    //implementation "androidx.core:core-splashscreen:1.0.0"
-
-    // News API
-    implementation 'com.squareup.okhttp3:okhttp:4.11.0'
-    implementation 'com.google.code.gson:gson:2.10.1'
-
-    // API Images (Glide)
-    implementation 'com.github.bumptech.glide:glide:4.14.2'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
-
 }
+
