@@ -11,16 +11,6 @@ import android.widget.ImageView
 import com.app.fitspace.R
 import com.app.fitspace.presentation.view.GoalsActivity
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HomeFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,17 +25,6 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        val goalsButton = view.findViewById<CardView>(R.id.card_view_item_goal)
-
-        goalsButton.setOnClickListener {
-            val intent = Intent(requireContext(), GoalsActivity::class.java)
-            startActivity(intent)
-        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -73,6 +52,13 @@ class HomeFragment : Fragment() {
             stretchIcon.setImageResource(R.drawable.stretch_light_mode)
             routineIcon.setImageResource(R.drawable.routine_light_mode)
             tipsIcon.setImageResource(R.drawable.tips_light_mode)
+        }
+
+        val goalsButton = view.findViewById<CardView>(R.id.card_view_item_goal)
+
+        goalsButton.setOnClickListener {
+            val intent = Intent(requireContext(), GoalsActivity::class.java)
+            startActivity(intent)
         }
     }
 

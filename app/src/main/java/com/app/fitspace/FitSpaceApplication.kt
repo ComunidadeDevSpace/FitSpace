@@ -17,7 +17,7 @@ class FitSpaceApplication: Application() {
         ).build()
     }
 
-    fun getAppDataBase():AppDatabase{
+    fun getAppDataBase():AppDataBase{
         return dataBase
     }
 }

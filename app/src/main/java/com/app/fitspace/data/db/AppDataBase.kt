@@ -1,13 +1,15 @@
-package com.app.fitspace.data.local
+package com.app.fitspace.data.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.app.fitspace.data.local.UserDao
+import com.app.fitspace.data.local.UserGoalsDao
+import com.app.fitspace.data.model.UserGoals
 import com.app.fitspace.data.model.user.User
 
-@Database(entities = [User::class], version = 1)
+@Database(entities = [User::class, UserGoals::class], version = 1)
 abstract class AppDataBase : RoomDatabase() {
     abstract fun userDao(): UserDao
     abstract fun userGoalsDao(): UserGoalsDao

@@ -27,13 +27,13 @@ class UserGoalsViewModel(
     }
 
 
-    fun insert(userGoals: UserGoals){
+    private fun insert(userGoals: UserGoals){
         viewModelScope.launch {
             userGoalsDao.insertGoals(userGoals)
         }
     }
 
-    fun update(userGoals: UserGoals){
+    private fun update(userGoals: UserGoals){
         viewModelScope.launch {
             userGoalsDao.updateGoals(userGoals)
         }

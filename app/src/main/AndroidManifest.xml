@@ -24,7 +24,7 @@
             android:name=".presentation.view.SignUp"
             android:exported="false" />
         <activity
-            android:name=".ui.GoalsActivity"
+            android:name=".presentation.view.GoalsActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.view.SplashScreen"
