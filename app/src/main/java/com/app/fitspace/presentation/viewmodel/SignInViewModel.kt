@@ -2,7 +2,7 @@ package com.app.fitspace.presentation.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import com.app.fitspace.data.local.AppDataBase
+import com.app.fitspace.data.db.AppDataBase
 import com.app.fitspace.data.local.UserDao
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

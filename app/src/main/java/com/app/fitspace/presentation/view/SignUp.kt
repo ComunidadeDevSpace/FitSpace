@@ -14,7 +14,7 @@ import androidx.cardview.widget.CardView
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.app.fitspace.R
-import com.app.fitspace.data.model.User
+import com.app.fitspace.data.model.user.User
 import com.app.fitspace.databinding.ActivitySignUpBinding
 import com.app.fitspace.presentation.viewmodel.UserViewModel
 import com.google.android.material.snackbar.Snackbar

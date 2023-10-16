@@ -1,17 +1,14 @@
 package com.app.fitspace.presentation.view
 
-import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.app.fitspace.R
-import com.app.fitspace.data.local.AppDatabase
+import com.app.fitspace.data.db.AppDataBase
 import com.app.fitspace.databinding.ActivityImcBinding
 import com.app.fitspace.presentation.viewmodel.UserGoalsViewModel
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -24,7 +21,7 @@ class ImcActivity : AppCompatActivity() {
         UserGoalsViewModel.getVmFactory(application)
     }
 
-    private lateinit var db: AppDatabase
+    private lateinit var db: AppDataBase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +29,7 @@ class ImcActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 //         Initialize the database instance
-        db = AppDatabase.getInstance(this)
+        db = AppDataBase.getInstance(this)
 
 
 //         Use a coroutine to perform database operations asynchronously
