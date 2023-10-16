@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/blue_02"
+    android:background="@color/blue_01"
     android:id="@+id/toolbar_sign_up"
     app:titleTextColor="@color/white"
     app:theme="@style/ToolbarStyle">
