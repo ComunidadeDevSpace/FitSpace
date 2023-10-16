@@ -1,7 +1,6 @@
 package com.app.fitspace.presentation.fragment
 
 import android.app.AlertDialog
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -14,20 +13,7 @@ import com.app.fitspace.R
 import com.app.fitspace.presentation.view.SignUp
 import kotlin.system.exitProcess
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [SettingsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class SettingsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
     private lateinit var dialog: AlertDialog
 
@@ -79,7 +65,7 @@ class SettingsFragment : Fragment() {
     }
 
     private fun showAlertDialog() {
-        val alertDialog = AlertDialog.Builder(requireContext(), R.style.DialogTheme)
+        val alertDialog = AlertDialog.Builder(requireContext())
             .setTitle("Tem certeza que deseja sair?")
             .setMessage("Você precisará logar novamente")
             .setPositiveButton("Sim") { _, _ ->

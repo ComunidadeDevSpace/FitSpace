@@ -166,7 +166,7 @@ class SignUp : AppCompatActivity() {
         val birth = selectedDate ?: ""
         val gender = if (rbFemale.isChecked) "Female" else "Male"
 
-        val user = User(name, email, nickname, password, phone, birth, gender)
+        val user = User(0, name, email, nickname, password, phone, birth, gender)
         signUpViewModel.insertUser(user)
     }
 }
