@@ -25,7 +25,6 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
@@ -39,7 +38,6 @@ class HomeFragment : Fragment() {
         val routineIcon: ImageView = view.findViewById(R.id.image_view_item_routine)
         val tipsIcon: ImageView = view.findViewById(R.id.image_view_item_tips)
 
-        // Verifica o tema atual e muda o ícone do ImageView
         if (isDarkTheme()) {
             imcIcon.setImageResource(R.drawable.bmi_dark_mode)
             caloriesIcon.setImageResource(R.drawable.calorias_dark_mode)

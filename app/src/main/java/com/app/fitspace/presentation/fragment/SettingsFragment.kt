@@ -31,7 +31,6 @@ class SettingsFragment : Fragment() {
         }
 
         cardViewProfile.setOnClickListener {
-            // Iniciando a atividade de edição do perfil
             val intent = Intent(activity, SignUp::class.java)
             startActivity(intent)
         }

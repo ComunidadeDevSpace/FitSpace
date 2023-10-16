@@ -19,20 +19,16 @@ import com.app.fitspace.presentation.viewmodel.SignInViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-
 class SignIn : AppCompatActivity() {
 
     private lateinit var binding: ActivitySignInBinding
     private lateinit var signViewModel: SignInViewModel
 
-
-    //private val userViewModel: UserViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Tornando o texto "Registra-se aqui." clicável direcionando à SignUp.
         val textViewLink = findViewById<TextView>(R.id.textview_link)
 
         val spannableString = SpannableString(getString(R.string.textNewUser))
@@ -64,7 +60,6 @@ class SignIn : AppCompatActivity() {
             val userEmail = findViewById<EditText>(R.id.email_edt_text)
             val userPassword = findViewById<EditText>(R.id.password_edt_text)
 
-            // Usar uma corrotina para executar a validação em segundo plano
             lifecycleScope.launch(Dispatchers.Main) {
                 val isUserLogged = signViewModel.validaLoginPass(userEmail.text.toString(), userPassword.text.toString())
 

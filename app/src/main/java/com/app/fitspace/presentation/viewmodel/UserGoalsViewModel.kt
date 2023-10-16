@@ -10,14 +10,11 @@ import com.app.fitspace.data.local.UserGoalsDao
 import com.app.fitspace.data.model.UserGoals
 import com.app.fitspace.utils.ActionTypeGoals
 import com.app.fitspace.utils.GoalsAction
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class UserGoalsViewModel(
     private val userGoalsDao: UserGoalsDao)
     : ViewModel(){
-
 
     fun execute(goalsAction: GoalsAction){
         when (goalsAction.actionType){
@@ -25,7 +22,6 @@ class UserGoalsViewModel(
             ActionTypeGoals.UPDATE.name -> update(goalsAction.userGoals!!)
         }
     }
-
 
     private fun insert(userGoals: UserGoals){
         viewModelScope.launch {
@@ -39,8 +35,6 @@ class UserGoalsViewModel(
         }
     }
 
-
-
     companion object {
         fun getVmFactory(application: Application): ViewModelProvider.Factory {
             val dataBaseInstance = (application as FitSpaceApplication).getAppDataBase()
@@ -53,6 +47,4 @@ class UserGoalsViewModel(
             }
         }
     }
-
-
 }

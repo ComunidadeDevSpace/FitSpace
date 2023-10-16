@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.room.Room
 import com.app.fitspace.data.db.AppDataBase
 
-
 class FitSpaceApplication: Application() {
 
     lateinit var dataBase: AppDataBase

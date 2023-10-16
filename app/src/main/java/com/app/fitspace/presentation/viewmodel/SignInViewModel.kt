@@ -7,7 +7,6 @@ import com.app.fitspace.data.local.UserDao
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-
 class SignInViewModel(
     application: Application
 ) : AndroidViewModel(application) {

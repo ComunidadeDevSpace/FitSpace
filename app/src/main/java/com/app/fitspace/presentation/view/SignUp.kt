@@ -32,7 +32,6 @@ class SignUp : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
     private lateinit var signUpViewModel: UserViewModel
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_sign_up)
@@ -126,7 +125,6 @@ class SignUp : AppCompatActivity() {
         }
     }
 
-    //Mostra uma mensagem ao clicar no botão de salvar.
     private fun showAlertDialog() {
         val alertDialog = AlertDialog.Builder(this)
             .setTitle("Tem certeza que deseja sair?")

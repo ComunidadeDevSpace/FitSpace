@@ -28,11 +28,8 @@ class ImcActivity : AppCompatActivity() {
         binding = ActivityImcBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//         Initialize the database instance
         db = AppDataBase.getInstance(this)
 
-
-//         Use a coroutine to perform database operations asynchronously
         lifecycleScope.launch {
             val height = withContext(Dispatchers.IO) {
                 db.userGoalsDao().getLastUserHeight()
@@ -76,8 +73,6 @@ class ImcActivity : AppCompatActivity() {
                 binding.textViewClassificacao.text = classificacao
 
             } else {
-                // Handle the case where height or weight is null or <= 0
-                // You may want to display an error message or handle it differently
                 binding.textViewImcResult.text = "Invalid data"
             }
 

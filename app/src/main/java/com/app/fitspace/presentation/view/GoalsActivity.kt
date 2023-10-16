@@ -46,8 +46,6 @@ class GoalsActivity : AppCompatActivity() {
         val spinner = findViewById<Spinner>(R.id.spinner_weekly_exercise)
         val saveButton = findViewById<Button>(R.id.save_btn_goals)
 
-
-
         saveButton.setOnClickListener {
             val weight = editTextWeight.text
             val height = editTextHeight.text
@@ -76,7 +74,6 @@ class GoalsActivity : AppCompatActivity() {
         viewModel.execute(goalsAction)
         finish()
     }
-
 
     fun onRadioButtonClicked(view: View) {
         val radioButtonManter = findViewById<RadioButton>(R.id.rb_manter)

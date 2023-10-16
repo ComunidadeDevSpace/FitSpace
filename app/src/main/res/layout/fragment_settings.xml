@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue_background"
     tools:context=".presentation.fragment.HomeFragment">
 
     <LinearLayout
@@ -16,7 +15,7 @@
             android:id="@+id/card_view_item_profile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/blue_background">
+            style="@style/CardViewMain">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -59,7 +58,7 @@
             android:id="@+id/card_view_item_notifications"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/blue_background">
+            style="@style/CardViewMain">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -100,7 +99,7 @@
             android:id="@+id/card_view_item_goal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/blue_background">
+            style="@style/CardViewMain">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -143,7 +142,7 @@
             android:id="@+id/card_view_item_dark_mode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/blue_background">
+            style="@style/CardViewMain">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -186,7 +185,7 @@
             android:id="@+id/card_view_item_logout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/blue_background">
+            style="@style/CardViewMain">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -229,7 +228,7 @@
             android:id="@+id/card_view_item_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/blue_background">
+            style="@style/CardViewMain">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
