@@ -3,7 +3,7 @@ package com.app.fitspace.data.model
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity
+@Entity(tableName = "user_goals")
 data class UserGoals(
     @PrimaryKey(autoGenerate = true)
     val id:Int = 0,
