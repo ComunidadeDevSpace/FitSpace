@@ -6,7 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import com.app.fitspace.data.model.User
+import com.app.fitspace.data.model.user.User
 
 @Dao
 interface UserDao {

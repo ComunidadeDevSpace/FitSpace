@@ -2,17 +2,18 @@ package com.app.fitspace
 
 import android.app.Application
 import androidx.room.Room
-import com.app.fitspace.data.local.AppDatabase
+import com.app.fitspace.data.db.AppDataBase
+
 
 class FitSpaceApplication: Application() {
 
-    lateinit var dataBase: AppDatabase
+    lateinit var dataBase: AppDataBase
     override fun onCreate() {
         super.onCreate()
 
         dataBase = Room.databaseBuilder(
             applicationContext,
-            AppDatabase::class.java, "user_db"
+            AppDataBase::class.java, "user_db"
         ).build()
     }
 

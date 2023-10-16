@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue_background"
     tools:context=".presentation.fragment.HomeFragment">
 
     <LinearLayout
@@ -16,7 +15,7 @@
             android:id="@+id/card_view_item_bmi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/blue_background">
+            style="@style/CardViewMain">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -28,7 +27,6 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:contentDescription="@string/imc_icon"
-                    android:src="@drawable/bmi_light_mode"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -40,7 +38,6 @@
                     android:layout_marginStart="16dp"
                     android:fontFamily="@font/poppins_medium"
                     android:text="@string/body_mass_index"
-                    android:textColor="@color/black"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/image_view_item_bmi"
@@ -54,13 +51,13 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/black" />
+            android:background="@color/black"/>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_view_item_calories"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/blue_background">
+            style="@style/CardViewMain">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -72,7 +69,6 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:contentDescription="@string/calories_icon"
-                    android:src="@drawable/caloria_light_mode"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -83,7 +79,6 @@
                     android:layout_marginStart="16dp"
                     android:fontFamily="@font/poppins_medium"
                     android:text="@string/calories"
-                    android:textColor="@color/black"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/image_view_item_calories"
@@ -96,13 +91,13 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/black" />
+            android:background="@color/black"/>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_view_item_goal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/blue_background">
+            style="@style/CardViewMain">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -114,7 +109,6 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:contentDescription="@string/goal_icon"
-                    android:src="@drawable/goal_light_mode"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -126,7 +120,6 @@
                     android:layout_marginStart="16dp"
                     android:fontFamily="@font/poppins_medium"
                     android:text="@string/goal"
-                    android:textColor="@color/black"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/image_view_item_goal"
@@ -140,13 +133,13 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/black" />
+            android:background="@color/black"/>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_view_item_stretch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/blue_background">
+            style="@style/CardViewMain">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -158,7 +151,6 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:contentDescription="@string/stretch_icon"
-                    android:src="@drawable/stretch_light_mode"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -170,7 +162,6 @@
                     android:layout_marginStart="16dp"
                     android:fontFamily="@font/poppins_medium"
                     android:text="@string/stretch"
-                    android:textColor="@color/black"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/image_view_item_stretch"
@@ -184,13 +175,13 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/black" />
+            android:background="@color/black"/>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_view_item_routine"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/blue_background">
+            style="@style/CardViewMain">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -202,7 +193,6 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:contentDescription="@string/icon_routine"
-                    android:src="@drawable/routine_light_mode"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -214,7 +204,6 @@
                     android:layout_marginStart="16dp"
                     android:fontFamily="@font/poppins_medium"
                     android:text="@string/routines"
-                    android:textColor="@color/black"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/image_view_item_routine"
@@ -228,13 +217,13 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/black" />
+            android:background="@color/black"/>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_view_item_dica"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/blue_background">
+            style="@style/CardViewMain">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -242,11 +231,10 @@
                 android:padding="24dp">
 
                 <ImageView
-                    android:id="@+id/image_view_item_dica"
+                    android:id="@+id/image_view_item_tips"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:contentDescription="@string/icon_routine"
-                    android:src="@drawable/dica_light_mode"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -258,10 +246,9 @@
                     android:layout_marginStart="16dp"
                     android:fontFamily="@font/poppins_medium"
                     android:text="@string/dica"
-                    android:textColor="@color/black"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/image_view_item_dica"
+                    app:layout_constraintStart_toEndOf="@id/image_view_item_tips"
                     app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -272,7 +259,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/black" />
+            android:background="@color/black"/>
 
     </LinearLayout>
 

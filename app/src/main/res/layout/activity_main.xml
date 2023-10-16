@@ -23,9 +23,9 @@
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_nav_view"
+            style="@style/ToolbarStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/blue_02"
             app:itemIconSize="38dp"
             app:itemIconTint="@color/white"
             app:menu="@menu/menu_main" />
