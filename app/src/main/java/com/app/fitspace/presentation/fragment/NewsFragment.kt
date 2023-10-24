@@ -1,6 +1,7 @@
 package com.app.fitspace.presentation.fragment
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -18,6 +19,7 @@ class NewsFragment : Fragment() {
     private val apiKey = "4425f78069924e2e92a835ddb610704c"
     private val healthNewsList = mutableListOf<HealthNews>()
     private lateinit var newsAdapter: NewsAdapter
+    private var isFragmentAttached = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,15 +39,27 @@ class NewsFragment : Fragment() {
 
         val newsApiClient = HealthNewsApiClient(apiKey)
         newsApiClient.getHealthNews { newsList, error ->
-            if (error != null) {
-                // Handle error
-            } else {
-                requireActivity().runOnUiThread {
-                    healthNewsList.addAll(newsList ?: emptyList())
-                    newsAdapter.notifyDataSetChanged()
+            if (isFragmentAttached) {
+                if (error != null) {
+                    // Handle error
+                } else {
+                    requireActivity().runOnUiThread {
+                        healthNewsList.addAll(newsList ?: emptyList())
+                        newsAdapter.notifyDataSetChanged()
+                    }
                 }
             }
         }
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        isFragmentAttached = true
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        isFragmentAttached = false
     }
 
     companion object {
