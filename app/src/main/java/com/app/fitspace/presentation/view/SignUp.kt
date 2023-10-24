@@ -5,12 +5,8 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatRadioButton
-import androidx.cardview.widget.CardView
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.app.fitspace.R
@@ -24,13 +20,9 @@ import java.util.Locale
 
 class SignUp : AppCompatActivity() {
 
-    private var selectedDate: String? = null
-    private lateinit var dateText: TextView
-    private lateinit var rbGroup: RadioGroup
-    private lateinit var rbFemale: RadioButton
-    private lateinit var rbMale: RadioButton
     private lateinit var binding: ActivitySignUpBinding
     private lateinit var signUpViewModel: UserViewModel
+    private val calendar = Calendar.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,86 +32,61 @@ class SignUp : AppCompatActivity() {
         val factory = ViewModelProvider.AndroidViewModelFactory.getInstance(application)
         signUpViewModel = ViewModelProvider(this,factory).get(UserViewModel::class.java)
 
-
-        //setContentView(R.layout.activity_sign_up)
-
-        //val edtPassword = findViewById<EditText>(R.id.password_edt_text)
-        //val passwordWarming = findViewById<TextView>(R.id.textView_warning)
-        //val btnSave = findViewById<Button>(R.id.btn_save)
-        val edtPassword = binding.passwordEdtText
-        val passwordWarming = binding.textViewWarning
-        //val btnSave = binding.btnSave
-
-        //btnSave.setOnClickListener {
         binding.btnSave.setOnClickListener {
-            if(isPasswordValid(edtPassword.text.toString())){
+            if(isPasswordValid(binding.passwordEdtText.text.toString())){
+                binding.user = User(
+                    0,
+                    binding.nameEdtText.text.toString(),
+                    binding.emailEdtText.text.toString(),
+                    binding.nickEdtText.text.toString(),
+                    binding.passwordEdtText.text.toString(),
+                    binding.phoneEdtText.text.toString(),
+                    binding.dateEdtText.text.toString(),
+                    if (binding.rbFemale.isChecked) "Female" else "Male"
+                )
                 saveUserData()
                 finish()
-            } else if (!isPasswordValid(edtPassword.text.toString())){
-                passwordWarming.visibility = View.VISIBLE
+            } else if (!isPasswordValid(binding.passwordEdtText.text.toString())){
+                binding.textViewWarning.visibility = View.VISIBLE
                 Snackbar.make(binding.btnSave, "Senha inválida", Snackbar.LENGTH_LONG).show()
             }
         }
 
-        //val imageView = findViewById<ImageView>(R.id.back_toolbar)
-        val imageView = binding.backToolbar
-        imageView.setOnClickListener {
+        binding.backToolbar.setOnClickListener {
             showAlertDialog()
         }
 
-        val dataButton = findViewById<CardView>(R.id.date_cardview)
-        //val dataButton = binding.dateCardview
-
-        val calendarBox = Calendar.getInstance()
-        val dateBox = DatePickerDialog.OnDateSetListener { datePicker, year, month, day ->
-            calendarBox.set(Calendar.YEAR, year)
-            calendarBox.set(Calendar.MONTH, month)
-            calendarBox.set(Calendar.DAY_OF_MONTH, day)
-            val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.UK)
-            dateFormat.format(calendarBox.time)
-            selectedDate = dateFormat.format(calendarBox.time)
-            dateText = findViewById(R.id.date_edt_text)
-            dateText.text = selectedDate
-
-//            R.style.TimePickerDialogTheme
+        binding.dateCardview.setOnClickListener {
+            showDatePicker()
         }
-
-        dataButton.setOnClickListener {
-            DatePickerDialog(
-                this,
-                dateBox,
-                calendarBox.get(Calendar.YEAR),
-                calendarBox.get(Calendar.MONTH),
-                calendarBox.get(Calendar.DAY_OF_MONTH)
-            ).show()
-        }
-
-        rbGroup = findViewById(R.id.radiogroup_gender)
-        rbFemale = findViewById(R.id.rb_female)
-        rbMale = findViewById(R.id.rb_male)
     }
 
-//    private fun updateText(calendar: Calendar) {
-//        val dateFormat = "dd/MM/yyyy"
-//        val simple = SimpleDateFormat(dateFormat, Locale.UK)
-//        simple.format(calendar.time)
-//
-//    }
+    private fun showDatePicker() {
+        val datePickerDialog = DatePickerDialog(this,{DatePicker, year: Int, monthOfYear: Int, dayOfMont: Int ->
+            val selectedDate = Calendar.getInstance()
+            val dateFormat = SimpleDateFormat("dd/MM/yyyy",Locale.getDefault())
+
+            selectedDate.set(year,monthOfYear,dayOfMont)
+            binding.dateEdtText.setText(dateFormat.format(selectedDate.time))
+        }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH))
+        datePickerDialog.show()
+    }
 
     fun onRadioButtonClicked(view: View) {
-        val isSelected = (view as AppCompatRadioButton).isChecked
-        when (view.id) {
+        val radioButton = view as AppCompatRadioButton
+
+        when (radioButton.id) {
             R.id.rb_female -> {
-                if (isSelected) {
-                    rbMale.setTextColor(Color.GRAY)
-                    rbMale.isChecked = false
+                if (radioButton.isChecked) {
+                    binding.rbMale.setTextColor(Color.GRAY)
+                    binding.rbMale.isChecked = false
                 }
             }
 
             R.id.rb_male -> {
-                if (isSelected) {
-                    rbFemale.setTextColor(Color.GRAY)
-                    rbFemale.isChecked = false
+                if (radioButton.isChecked) {
+                    binding.rbFemale.setTextColor(Color.GRAY)
+                    binding.rbFemale.isChecked = false
                 }
             }
         }
@@ -138,33 +105,11 @@ class SignUp : AppCompatActivity() {
     }
 
     private fun isPasswordValid(password: String): Boolean{
-        val hasUpperCase = password.any{
-            it.isUpperCase()
-        }
-
-        val hasLowerCase = password.any(){
-            it.isLowerCase()
-        }
-
-        val hasDigit = password.any{
-            it.isDigit()
-        }
-
-        val isLenghtValid = password.length >= 8
-
-        return hasUpperCase && hasLowerCase && hasDigit && isLenghtValid
+        return password.matches(Regex("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}\$"))
     }
 
     private fun saveUserData() {
-        val name = binding.nameEdtText.text.toString()
-        val email = binding.emailEdtText.text.toString()
-        val nickname = binding.nickEdtText.text.toString()
-        val password = binding.passwordEdtText.text.toString()
-        val phone = binding.phoneEdtText.text.toString()
-        val birth = selectedDate ?: ""
-        val gender = if (rbFemale.isChecked) "Female" else "Male"
-
-        val user = User(0, name, email, nickname, password, phone, birth, gender)
+        val user = binding.user ?: User(0, "", "", "", "", "", "", "")
         signUpViewModel.insertUser(user)
     }
 }
