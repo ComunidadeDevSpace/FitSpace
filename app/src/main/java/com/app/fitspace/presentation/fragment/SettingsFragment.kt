@@ -11,62 +11,59 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.cardview.widget.CardView
 import com.app.fitspace.R
+import com.app.fitspace.databinding.FragmentHomeBinding
+import com.app.fitspace.databinding.FragmentSettingsBinding
 import com.app.fitspace.presentation.view.SignUp
 import kotlin.system.exitProcess
 
 class SettingsFragment : Fragment() {
 
+    private var binding: FragmentSettingsBinding? = null
     private lateinit var dialog: AlertDialog
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val rootView = inflater.inflate(R.layout.fragment_settings, container, false)
-        val cardViewProfile = rootView.findViewById<CardView>(R.id.card_view_item_profile)
-        val cardViewAbout = rootView.findViewById<CardView>(R.id.card_view_item_info)
-        val imgBtn = rootView.findViewById<CardView>(R.id.card_view_item_logout)
+        binding = FragmentSettingsBinding.inflate(inflater, container, false)
+        val rootView = binding?.root
 
-        imgBtn.setOnClickListener {
-            showAlertDialog()
+        binding?.apply {
+            cardViewItemProfile.setOnClickListener {
+                val intent = Intent(requireActivity(), SignUp::class.java)
+                startActivity(intent)
+            }
+
+            cardViewItemInfo.setOnClickListener {
+                showAlertDialogAbout()
+            }
+
+            cardViewItemLogout.setOnClickListener {
+                showAlertDialog()
+            }
         }
-
-        cardViewProfile.setOnClickListener {
-            val intent = Intent(activity, SignUp::class.java)
-            startActivity(intent)
-        }
-
-        cardViewAbout.setOnClickListener {
-            showAlertDialogAbout()
-        }
-
         return rootView
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val profileIcon: ImageView = view.findViewById(R.id.image_view_item_profile)
-        val notificationsIcon: ImageView = view.findViewById(R.id.image_view_item_notifications)
-        val languageIcon: ImageView = view.findViewById(R.id.image_view_item_language)
-        val darkModeIcon: ImageView = view.findViewById(R.id.image_view_item_dark_mode)
-        val logoutIcon: ImageView = view.findViewById(R.id.image_view_item_logout)
-        val infoIcon: ImageView = view.findViewById(R.id.image_view_item_info)
-
-        if (isDarkTheme()) {
-            profileIcon.setImageResource(R.drawable.edit_dark_mode)
-            notificationsIcon.setImageResource(R.drawable.notification_dark_mode)
-            languageIcon.setImageResource(R.drawable.language_dark_mode)
-            darkModeIcon.setImageResource(R.drawable.dark_mode_dark_mode)
-            logoutIcon.setImageResource(R.drawable.logout_dark_mode)
-            infoIcon.setImageResource(R.drawable.info_dark_mode)
-        } else {
-            profileIcon.setImageResource(R.drawable.edit_light_mode)
-            notificationsIcon.setImageResource(R.drawable.notification_light_mode)
-            languageIcon.setImageResource(R.drawable.language_light_mode)
-            darkModeIcon.setImageResource(R.drawable.dark_mode_light_mode)
-            logoutIcon.setImageResource(R.drawable.logout_light_mode)
-            infoIcon.setImageResource(R.drawable.info_light_mode)
+        binding?.apply {
+            if (isDarkTheme()) {
+                imageViewItemProfile.setImageResource(R.drawable.edit_dark_mode)
+                imageViewItemNotifications.setImageResource(R.drawable.notification_dark_mode)
+                imageViewItemLanguage.setImageResource(R.drawable.language_dark_mode)
+                imageViewItemDarkMode.setImageResource(R.drawable.dark_mode_dark_mode)
+                imageViewItemLogout.setImageResource(R.drawable.logout_dark_mode)
+                imageViewItemInfo.setImageResource(R.drawable.info_dark_mode)
+            } else {
+                imageViewItemProfile.setImageResource(R.drawable.edit_light_mode)
+                imageViewItemNotifications.setImageResource(R.drawable.notification_light_mode)
+                imageViewItemLanguage.setImageResource(R.drawable.language_light_mode)
+                imageViewItemDarkMode.setImageResource(R.drawable.dark_mode_light_mode)
+                imageViewItemLogout.setImageResource(R.drawable.logout_light_mode)
+                imageViewItemInfo.setImageResource(R.drawable.info_light_mode)
+            }
         }
     }
 
@@ -76,19 +73,24 @@ class SettingsFragment : Fragment() {
         return nightModeFlags == android.content.res.Configuration.UI_MODE_NIGHT_YES
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
+    }
+
     companion object {
         @JvmStatic
         fun newInstance() =
             SettingsFragment()
     }
 
-    private fun showAlertDialogAbout(){
+    private fun showAlertDialogAbout() {
         val build = AlertDialog.Builder(requireContext())
         val view = layoutInflater.inflate(R.layout.dialog_settings_about, null)
         build.setView(view)
 
         val btnClose = view.findViewById<ImageButton>(R.id.btnClose)
-        btnClose.setOnClickListener{
+        btnClose.setOnClickListener {
             dialog.dismiss()
         }
 
