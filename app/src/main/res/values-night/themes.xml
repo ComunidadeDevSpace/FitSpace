@@ -14,12 +14,6 @@
 
         <!-- Tertiary brand color -->
         <item name="colorTertiary">@color/safety_yellow</item>
-
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">@color/black_42</item>
-
-        <!-- Customize your theme here. -->
-        <item name="android:windowIsTranslucent">true</item>
     </style>
 
     <style name="LinkTextColor" parent="Widget.AppCompat.TextView">

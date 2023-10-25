@@ -8,38 +8,74 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.ImageView
 import androidx.cardview.widget.CardView
 import com.app.fitspace.R
+import com.app.fitspace.databinding.FragmentHomeBinding
+import com.app.fitspace.databinding.FragmentSettingsBinding
 import com.app.fitspace.presentation.view.SignUp
 import kotlin.system.exitProcess
 
 class SettingsFragment : Fragment() {
 
+    private var binding: FragmentSettingsBinding? = null
     private lateinit var dialog: AlertDialog
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val rootView = inflater.inflate(R.layout.fragment_settings, container, false)
-        val cardViewProfile = rootView.findViewById<CardView>(R.id.card_view_item_profile)
-        val cardViewAbout = rootView.findViewById<CardView>(R.id.card_view_item_info)
-        val imgBtn = rootView.findViewById<CardView>(R.id.card_view_item_logout)
+        binding = FragmentSettingsBinding.inflate(inflater, container, false)
+        val rootView = binding?.root
 
-        imgBtn.setOnClickListener {
-            showAlertDialog()
+        binding?.apply {
+            cardViewItemProfile.setOnClickListener {
+                val intent = Intent(requireActivity(), SignUp::class.java)
+                startActivity(intent)
+            }
+
+            cardViewItemInfo.setOnClickListener {
+                showAlertDialogAbout()
+            }
+
+            cardViewItemLogout.setOnClickListener {
+                showAlertDialog()
+            }
         }
-
-        cardViewProfile.setOnClickListener {
-            val intent = Intent(activity, SignUp::class.java)
-            startActivity(intent)
-        }
-
-        cardViewAbout.setOnClickListener {
-            showAlertDialogAbout()
-        }
-
         return rootView
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding?.apply {
+            if (isDarkTheme()) {
+                imageViewItemProfile.setImageResource(R.drawable.edit_dark_mode)
+                imageViewItemNotifications.setImageResource(R.drawable.notification_dark_mode)
+                imageViewItemLanguage.setImageResource(R.drawable.language_dark_mode)
+                imageViewItemDarkMode.setImageResource(R.drawable.dark_mode_dark_mode)
+                imageViewItemLogout.setImageResource(R.drawable.logout_dark_mode)
+                imageViewItemInfo.setImageResource(R.drawable.info_dark_mode)
+            } else {
+                imageViewItemProfile.setImageResource(R.drawable.edit_light_mode)
+                imageViewItemNotifications.setImageResource(R.drawable.notification_light_mode)
+                imageViewItemLanguage.setImageResource(R.drawable.language_light_mode)
+                imageViewItemDarkMode.setImageResource(R.drawable.dark_mode_light_mode)
+                imageViewItemLogout.setImageResource(R.drawable.logout_light_mode)
+                imageViewItemInfo.setImageResource(R.drawable.info_light_mode)
+            }
+        }
+    }
+
+    private fun isDarkTheme(): Boolean {
+        val nightModeFlags = resources.configuration.uiMode and
+                android.content.res.Configuration.UI_MODE_NIGHT_MASK
+        return nightModeFlags == android.content.res.Configuration.UI_MODE_NIGHT_YES
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
     }
 
     companion object {
@@ -48,13 +84,13 @@ class SettingsFragment : Fragment() {
             SettingsFragment()
     }
 
-    private fun showAlertDialogAbout(){
+    private fun showAlertDialogAbout() {
         val build = AlertDialog.Builder(requireContext())
         val view = layoutInflater.inflate(R.layout.dialog_settings_about, null)
         build.setView(view)
 
         val btnClose = view.findViewById<ImageButton>(R.id.btnClose)
-        btnClose.setOnClickListener{
+        btnClose.setOnClickListener {
             dialog.dismiss()
         }
 
