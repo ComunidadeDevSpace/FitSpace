@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.fitspace.data.remote.HealthNews
@@ -41,7 +42,7 @@ class NewsFragment : Fragment() {
         newsApiClient.getHealthNews { newsList, error ->
             if (isFragmentAttached) {
                 if (error != null) {
-                    // Handle error
+                    Toast.makeText(requireContext(), "Ocorreu um erro: Falha ao carregar as notícias", Toast.LENGTH_LONG).show()
                 } else {
                     requireActivity().runOnUiThread {
                         healthNewsList.addAll(newsList ?: emptyList())
