@@ -39,18 +39,27 @@ class NewsFragment : Fragment() {
         binding.newsRecyclerView.adapter = newsAdapter
 
         val newsApiClient = HealthNewsApiClient(apiKey)
-        newsApiClient.getHealthNews { newsList, error ->
-            if (isFragmentAttached) {
-                if (error != null) {
-                    Toast.makeText(requireContext(), "Ocorreu um erro: Falha ao carregar as notícias", Toast.LENGTH_LONG).show()
-                } else {
+        newsApiClient.getHealthNews(
+            onSuccess = { newsList ->
+                if (isFragmentAttached) {
                     requireActivity().runOnUiThread {
-                        healthNewsList.addAll(newsList ?: emptyList())
+                        healthNewsList.addAll(newsList)
                         newsAdapter.notifyDataSetChanged()
                     }
                 }
+            },
+            onFailure = { error ->
+                if (isFragmentAttached) {
+                    requireActivity().runOnUiThread {
+                        Toast.makeText(
+                            requireContext(),
+                            "Ocorreu um erro: Falha ao carregar as notícias (${error})",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                }
             }
-        }
+        )
     }
 
     override fun onAttach(context: Context) {
