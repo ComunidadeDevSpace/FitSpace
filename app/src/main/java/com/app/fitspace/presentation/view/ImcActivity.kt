@@ -7,11 +7,9 @@ import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.app.fitspace.R
 import com.app.fitspace.data.local.AppDatabase
 import com.app.fitspace.databinding.ActivityImcBinding
 import com.app.fitspace.presentation.viewmodel.UserGoalsViewModel
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -87,7 +85,7 @@ class ImcActivity : AppCompatActivity() {
         }
 
         binding.apply {
-            textViewTabela.setOnClickListener {
+            upDown.setOnClickListener {
                 if (informationCard.visibility == View.VISIBLE) {
                     informationCard.visibility = View.INVISIBLE
                     arrowDown.visibility = View.INVISIBLE
