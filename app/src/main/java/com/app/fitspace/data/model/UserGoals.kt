@@ -1,6 +1,5 @@
 package com.app.fitspace.data.model
 
-import android.widget.Spinner
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 

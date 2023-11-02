@@ -1,15 +1,6 @@
 package com.app.fitspace.presentation.view
 
-import android.app.Activity
-import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.Canvas
 import android.graphics.Color
-import android.graphics.Paint
-import android.graphics.PorterDuff
-import android.graphics.PorterDuffXfermode
-import android.graphics.Rect
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -19,22 +10,18 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.RadioButton
+import android.widget.ScrollView
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toolbar
 import androidx.activity.viewModels
 import androidx.appcompat.widget.AppCompatRadioButton
 import com.app.fitspace.R
-import com.app.fitspace.data.local.ProfilePicture
 import com.app.fitspace.data.model.UserGoals
 import com.app.fitspace.presentation.viewmodel.ProfilePictureViewModel
 import com.app.fitspace.presentation.viewmodel.UserGoalsViewModel
 import com.app.fitspace.utils.ActionTypeGoals
 import com.app.fitspace.utils.GoalsAction
-import com.theartofdev.edmodo.cropper.CropImage
-import com.theartofdev.edmodo.cropper.CropImageView
-import java.io.ByteArrayOutputStream
-
 
 class GoalsActivity : AppCompatActivity() {
 
@@ -58,6 +45,7 @@ class GoalsActivity : AppCompatActivity() {
         tvHello.visibility = View.GONE
 
         val tvNameToolbar = findViewById<TextView>(R.id.tv_toolbar_name)
+        val scroll = findViewById<ScrollView>(R.id.scrollView2)
 
         val marginInDp = 36
         val marginInPixels = (marginInDp * resources.displayMetrics.density).toInt()
@@ -65,7 +53,11 @@ class GoalsActivity : AppCompatActivity() {
         layoutParams.marginStart = marginInPixels
         tvNameToolbar.layoutParams = layoutParams
 
-
+        if (isDarkTheme()){
+            scroll.setBackgroundColor(Color.parseColor("#000000"))
+        }else {
+            scroll.setBackgroundColor(Color.parseColor("#3BB6FB"))
+        }
 
         val editTextWeight = findViewById<EditText>(R.id.edit_weight)
         val editTextHeight = findViewById<EditText>(R.id.edit_height)
@@ -144,6 +136,11 @@ class GoalsActivity : AppCompatActivity() {
     }
 
 
+    private fun isDarkTheme(): Boolean {
+        val nightModeFlags = resources.configuration.uiMode and
+                android.content.res.Configuration.UI_MODE_NIGHT_MASK
+        return nightModeFlags == android.content.res.Configuration.UI_MODE_NIGHT_YES
+    }
 
     private fun addOrUpdate(
         weight:Double,
